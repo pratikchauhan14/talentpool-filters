@@ -32,6 +32,7 @@ const buildOptions = {
   minify: true,
   sourcemap: true,
   target: ['es2015'],
+  drop: ['console', 'debugger'],
   loader: {
     '.js': 'jsx',
   },
