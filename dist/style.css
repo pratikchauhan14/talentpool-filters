@@ -321,3 +321,62 @@ ease;
     max-width: 1000px;
     margin: 30px auto 10px;
 }
+
+@media (max-width: 1000px) {
+    .heading {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .heading h1 {
+        font-size: 40px;
+    }
+    
+    .talent-pool-filter-sidebar {
+        position: static;
+        width: 100%;
+        padding: 0 0 20px;
+    }
+    
+    .cobalt_search {
+        width: 100%;
+    }
+    
+    .talent-pool-contain {
+        width: 100%;
+    }
+    
+    #TalentPool {
+        margin: 0;
+    }
+    
+    button.talent-pool-popup-button {
+        width: 100%;
+    }
+    
+    .talent-pool-filter-right-content {
+        width: 100%;
+        padding: 0;
+    }
+    
+    .talent-pool-sorting-container {
+        text-align: left;
+    }
+    
+    .talent-pool-card-box {
+        width: 100%;
+    }
+    
+    .pagination_contain {
+        justify-content: center;
+    }
+    
+    .heading {
+        text-align: center;
+        padding: 0 15px;
+    }
+    
+    #add-data {max-width: 240px;line-height: 1.4;}
+}
