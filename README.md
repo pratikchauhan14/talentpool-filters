@@ -23,15 +23,15 @@ This project allows you to dynamically filter, search, and explore candidate pro
 Once deployed, the app will be live at:
 
 ```
-https://pratikchauhan14.github.io/Talentpool-filters/
+https://pratikchauhan14.github.io/talentpool-filters
 ```
 
 ## ⚡ Getting Started
 
 ### 1. Clone the repo
 ```bash
-git clone https://github.com/pratikchauhan14/Talentpool-filters.git
-cd Talentpool-filters
+git clone https://github.com/pratikchauhan14/talentpool-filters.git
+cd talentpool-filters
 ```
 
 ### 2. Install dependencies
