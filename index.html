@@ -117,10 +117,1871 @@
        </div>
     </div>
     <script src="bundle.talentpool.js"></script>
-    <script type="module">
-        import { TalentPool } from '../src/index.js'
-        // import { talentPoolData } from './src/data.js';
-        import { talentPoolData1 } from '../src/data.js';
+    <script >
+        
+const talentPoolData1 = [
+  {
+    "id": "10001",
+    "properties": {
+      "custom_talent_category": "Finance",
+      "hs_createdate": "06/11/24",
+      "t_candidate_id": "50001",
+      "t_city": "Bengaluru",
+      "t_current_position": "Financial Analyst",
+      "t_desired_region_1": "Bengaluru",
+      "t_desired_salary": "45000",
+      "t_experience_level": "Junior (0-2 years)",
+      "t_maincategory": "Finance",
+      "t_procedure_txt": "Permanent"
+    }
+  },
+  {
+    "id": "10002",
+    "properties": {
+      "custom_talent_category": "Software Development",
+      "hs_createdate": "06/12/24",
+      "t_candidate_id": "50002",
+      "t_city": "Hyderabad",
+      "t_current_position": "Backend Developer",
+      "t_desired_region_1": "Hyderabad",
+      "t_desired_salary": "120000",
+      "t_experience_level": "Mid-level (3-7 years)",
+      "t_maincategory": "IT",
+      "t_procedure_txt": "Contract"
+    }
+  },
+  {
+    "id": "10003",
+    "properties": {
+      "custom_talent_category": "Data Science",
+      "hs_createdate": "06/13/24",
+      "t_candidate_id": "50003",
+      "t_city": "Pune",
+      "t_current_position": "Data Analyst",
+      "t_desired_region_1": "Pune",
+      "t_desired_salary": "75000",
+      "t_experience_level": "Junior (0-2 years)",
+      "t_maincategory": "Analytics",
+      "t_procedure_txt": "Temporary"
+    }
+  },
+  {
+    "id": "10004",
+    "properties": {
+      "custom_talent_category": "Cloud Computing",
+      "hs_createdate": "06/14/24",
+      "t_candidate_id": "50004",
+      "t_city": "Chennai",
+      "t_current_position": "Cloud Engineer",
+      "t_desired_region_1": "Chennai",
+      "t_desired_salary": "150000",
+      "t_experience_level": "Senior (8+ years)",
+      "t_maincategory": "IT Infrastructure",
+      "t_procedure_txt": "Permanent"
+    }
+  },
+  {
+    "id": "10005",
+    "properties": {
+      "custom_talent_category": "UI/UX Design",
+      "hs_createdate": "06/15/24",
+      "t_candidate_id": "50005",
+      "t_city": "Gurugram",
+      "t_current_position": "UI/UX Designer",
+      "t_desired_region_1": "Gurugram",
+      "t_desired_salary": "95000",
+      "t_experience_level": "Mid-level (3-7 years)",
+      "t_maincategory": "Design",
+      "t_procedure_txt": "Contract"
+    }
+  },
+  {
+    "id": "10006",
+    "properties": {
+      "custom_talent_category": "Cybersecurity",
+      "hs_createdate": "06/16/24",
+      "t_candidate_id": "50006",
+      "t_city": "Bengaluru",
+      "t_current_position": "Security Analyst",
+      "t_desired_region_1": "Bengaluru",
+      "t_desired_salary": "130000",
+      "t_experience_level": "Mid-level (3-7 years)",
+      "t_maincategory": "IT Security",
+      "t_procedure_txt": "Permanent"
+    }
+  },
+  {
+    "id": "10007",
+    "properties": {
+      "custom_talent_category": "Finance & Accounts",
+      "hs_createdate": "06/17/24",
+      "t_candidate_id": "50007",
+      "t_city": "Hyderabad",
+      "t_current_position": "Accounts Executive",
+      "t_desired_region_1": "Hyderabad",
+      "t_desired_salary": "40000",
+      "t_experience_level": "Junior (0-2 years)",
+      "t_maincategory": "Finance",
+      "t_procedure_txt": "Temporary"
+    }
+  },
+  {
+    "id": "10008",
+    "properties": {
+      "custom_talent_category": "Human Resources",
+      "hs_createdate": "06/18/24",
+      "t_candidate_id": "50008",
+      "t_city": "Pune",
+      "t_current_position": "HR Manager",
+      "t_desired_region_1": "Pune",
+      "t_desired_salary": "110000",
+      "t_experience_level": "Senior (8+ years)",
+      "t_maincategory": "HR",
+      "t_procedure_txt": "Permanent"
+    }
+  },
+  {
+    "id": "10009",
+    "properties": {
+      "custom_talent_category": "Project Management",
+      "hs_createdate": "06/19/24",
+      "t_candidate_id": "50009",
+      "t_city": "Chennai",
+      "t_current_position": "Project Manager",
+      "t_desired_region_1": "Chennai",
+      "t_desired_salary": "160000",
+      "t_experience_level": "Senior (8+ years)",
+      "t_maincategory": "Management",
+      "t_procedure_txt": "Contract"
+    }
+  },
+  {
+    "id": "10010",
+    "properties": {
+      "custom_talent_category": "DevOps",
+      "hs_createdate": "06/20/24",
+      "t_candidate_id": "50010",
+      "t_city": "Gurugram",
+      "t_current_position": "DevOps Engineer",
+      "t_desired_region_1": "Gurugram",
+      "t_desired_salary": "145000",
+      "t_experience_level": "Mid-level (3-7 years)",
+      "t_maincategory": "IT",
+      "t_procedure_txt": "Permanent"
+    }
+  },
+  {
+    "id": "10011",
+    "properties": {
+      "custom_talent_category": "Mobile Development",
+      "hs_createdate": "06/21/24",
+      "t_candidate_id": "50011",
+      "t_city": "Bengaluru",
+      "t_current_position": "Android Developer",
+      "t_desired_region_1": "Bengaluru",
+      "t_desired_salary": "80000",
+      "t_experience_level": "Junior (0-2 years)",
+      "t_maincategory": "IT",
+      "t_procedure_txt": "Temporary"
+    }
+  },
+  {
+    "id": "10012",
+    "properties": {
+      "custom_talent_category": "Artificial Intelligence",
+      "hs_createdate": "06/22/24",
+      "t_candidate_id": "50012",
+      "t_city": "Hyderabad",
+      "t_current_position": "ML Engineer",
+      "t_desired_region_1": "Hyderabad",
+      "t_desired_salary": "155000",
+      "t_experience_level": "Senior (8+ years)",
+      "t_maincategory": "AI",
+      "t_procedure_txt": "Permanent"
+    }
+  },
+  {
+    "id": "10013",
+    "properties": {
+      "custom_talent_category": "Testing",
+      "hs_createdate": "06/23/24",
+      "t_candidate_id": "50013",
+      "t_city": "Pune",
+      "t_current_position": "QA Tester",
+      "t_desired_region_1": "Pune",
+      "t_desired_salary": "60000",
+      "t_experience_level": "Junior (0-2 years)",
+      "t_maincategory": "QA",
+      "t_procedure_txt": "Contract"
+    }
+  },
+  {
+    "id": "10001",
+    "properties": {
+      "custom_talent_category": "Finance",
+      "hs_createdate": "06/11/24",
+      "t_candidate_id": "50001",
+      "t_city": "Bengaluru",
+      "t_current_position": "Financial Analyst",
+      "t_desired_region_1": "Bengaluru",
+      "t_desired_salary": "45000",
+      "t_experience_level": "Junior (0-2 years)",
+      "t_maincategory": "Finance",
+      "t_procedure_txt": "Permanent"
+    }
+  },
+  {
+    "id": "10002",
+    "properties": {
+      "custom_talent_category": "Software Development",
+      "hs_createdate": "06/12/24",
+      "t_candidate_id": "50002",
+      "t_city": "Hyderabad",
+      "t_current_position": "Backend Developer",
+      "t_desired_region_1": "Hyderabad",
+      "t_desired_salary": "120000",
+      "t_experience_level": "Mid-level (3-7 years)",
+      "t_maincategory": "IT",
+      "t_procedure_txt": "Contract"
+    }
+  },
+  {
+    "id": "10003",
+    "properties": {
+      "custom_talent_category": "Data Science",
+      "hs_createdate": "06/13/24",
+      "t_candidate_id": "50003",
+      "t_city": "Pune",
+      "t_current_position": "Data Analyst",
+      "t_desired_region_1": "Pune",
+      "t_desired_salary": "75000",
+      "t_experience_level": "Junior (0-2 years)",
+      "t_maincategory": "Analytics",
+      "t_procedure_txt": "Temporary"
+    }
+  },
+  {
+    "id": "10004",
+    "properties": {
+      "custom_talent_category": "Cloud Computing",
+      "hs_createdate": "06/14/24",
+      "t_candidate_id": "50004",
+      "t_city": "Chennai",
+      "t_current_position": "Cloud Engineer",
+      "t_desired_region_1": "Chennai",
+      "t_desired_salary": "150000",
+      "t_experience_level": "Senior (8+ years)",
+      "t_maincategory": "IT Infrastructure",
+      "t_procedure_txt": "Permanent"
+    }
+  },
+  {
+    "id": "10005",
+    "properties": {
+      "custom_talent_category": "UI/UX Design",
+      "hs_createdate": "06/15/24",
+      "t_candidate_id": "50005",
+      "t_city": "Gurugram",
+      "t_current_position": "UI/UX Designer",
+      "t_desired_region_1": "Gurugram",
+      "t_desired_salary": "95000",
+      "t_experience_level": "Mid-level (3-7 years)",
+      "t_maincategory": "Design",
+      "t_procedure_txt": "Contract"
+    }
+  },
+  {
+    "id": "10006",
+    "properties": {
+      "custom_talent_category": "Cybersecurity",
+      "hs_createdate": "06/16/24",
+      "t_candidate_id": "50006",
+      "t_city": "Bengaluru",
+      "t_current_position": "Security Analyst",
+      "t_desired_region_1": "Bengaluru",
+      "t_desired_salary": "130000",
+      "t_experience_level": "Mid-level (3-7 years)",
+      "t_maincategory": "IT Security",
+      "t_procedure_txt": "Permanent"
+    }
+  },
+  {
+    "id": "10007",
+    "properties": {
+      "custom_talent_category": "Finance & Accounts",
+      "hs_createdate": "06/17/24",
+      "t_candidate_id": "50007",
+      "t_city": "Hyderabad",
+      "t_current_position": "Accounts Executive",
+      "t_desired_region_1": "Hyderabad",
+      "t_desired_salary": "40000",
+      "t_experience_level": "Junior (0-2 years)",
+      "t_maincategory": "Finance",
+      "t_procedure_txt": "Temporary"
+    }
+  },
+  {
+    "id": "10008",
+    "properties": {
+      "custom_talent_category": "Human Resources",
+      "hs_createdate": "06/18/24",
+      "t_candidate_id": "50008",
+      "t_city": "Pune",
+      "t_current_position": "HR Manager",
+      "t_desired_region_1": "Pune",
+      "t_desired_salary": "110000",
+      "t_experience_level": "Senior (8+ years)",
+      "t_maincategory": "HR",
+      "t_procedure_txt": "Permanent"
+    }
+  },
+  {
+    "id": "10009",
+    "properties": {
+      "custom_talent_category": "Project Management",
+      "hs_createdate": "06/19/24",
+      "t_candidate_id": "50009",
+      "t_city": "Chennai",
+      "t_current_position": "Project Manager",
+      "t_desired_region_1": "Chennai",
+      "t_desired_salary": "160000",
+      "t_experience_level": "Senior (8+ years)",
+      "t_maincategory": "Management",
+      "t_procedure_txt": "Contract"
+    }
+  },
+  {
+    "id": "10010",
+    "properties": {
+      "custom_talent_category": "DevOps",
+      "hs_createdate": "06/20/24",
+      "t_candidate_id": "50010",
+      "t_city": "Gurugram",
+      "t_current_position": "DevOps Engineer",
+      "t_desired_region_1": "Gurugram",
+      "t_desired_salary": "145000",
+      "t_experience_level": "Mid-level (3-7 years)",
+      "t_maincategory": "IT",
+      "t_procedure_txt": "Permanent"
+    }
+  },
+  {
+    "id": "10011",
+    "properties": {
+      "custom_talent_category": "Mobile Development",
+      "hs_createdate": "06/21/24",
+      "t_candidate_id": "50011",
+      "t_city": "Bengaluru",
+      "t_current_position": "Android Developer",
+      "t_desired_region_1": "Bengaluru",
+      "t_desired_salary": "80000",
+      "t_experience_level": "Junior (0-2 years)",
+      "t_maincategory": "IT",
+      "t_procedure_txt": "Temporary"
+    }
+  },
+  {
+    "id": "10012",
+    "properties": {
+      "custom_talent_category": "Artificial Intelligence",
+      "hs_createdate": "06/22/24",
+      "t_candidate_id": "50012",
+      "t_city": "Hyderabad",
+      "t_current_position": "ML Engineer",
+      "t_desired_region_1": "Hyderabad",
+      "t_desired_salary": "155000",
+      "t_experience_level": "Senior (8+ years)",
+      "t_maincategory": "AI",
+      "t_procedure_txt": "Permanent"
+    }
+  },
+  {
+    "id": "10013",
+    "properties": {
+      "custom_talent_category": "Testing",
+      "hs_createdate": "06/23/24",
+      "t_candidate_id": "50013",
+      "t_city": "Pune",
+      "t_current_position": "QA Tester",
+      "t_desired_region_1": "Pune",
+      "t_desired_salary": "60000",
+      "t_experience_level": "Junior (0-2 years)",
+      "t_maincategory": "QA",
+      "t_procedure_txt": "Contract"
+    }
+  },
+  {
+    "id": "10014",
+    "properties": {
+      "custom_talent_category": "Business Analysis",
+      "hs_createdate": "06/24/24",
+      "t_candidate_id": "50014",
+      "t_city": "Chennai",
+      "t_current_position": "Business Analyst",
+      "t_desired_region_1": "Chennai",
+      "t_desired_salary": "95000",
+      "t_experience_level": "Mid-level (3-7 years)",
+      "t_maincategory": "Business",
+      "t_procedure_txt": "Permanent"
+    }
+  },
+  {
+    "id": "10015",
+    "properties": {
+      "custom_talent_category": "Full Stack Development",
+      "hs_createdate": "06/25/24",
+      "t_candidate_id": "50015",
+      "t_city": "Gurugram",
+      "t_current_position": "Full Stack Engineer",
+      "t_desired_region_1": "Gurugram",
+      "t_desired_salary": "170000",
+      "t_experience_level": "Senior (8+ years)",
+      "t_maincategory": "IT",
+      "t_procedure_txt": "Contract"
+    }
+  },
+  {
+    "id": "10016",
+    "properties": {
+      "custom_talent_category": "Cloud Architecture",
+      "hs_createdate": "06/26/24",
+      "t_candidate_id": "50016",
+      "t_city": "Bengaluru",
+      "t_current_position": "Cloud Architect",
+      "t_desired_region_1": "Bengaluru",
+      "t_desired_salary": "185000",
+      "t_experience_level": "Senior (8+ years)",
+      "t_maincategory": "IT Infrastructure",
+      "t_procedure_txt": "Permanent"
+    }
+  },
+  {
+    "id": "10017",
+    "properties": {
+      "custom_talent_category": "Digital Marketing",
+      "hs_createdate": "06/27/24",
+      "t_candidate_id": "50017",
+      "t_city": "Hyderabad",
+      "t_current_position": "SEO Specialist",
+      "t_desired_region_1": "Hyderabad",
+      "t_desired_salary": "50000",
+      "t_experience_level": "Junior (0-2 years)",
+      "t_maincategory": "Marketing",
+      "t_procedure_txt": "Temporary"
+    }
+  },
+  {
+    "id": "10018",
+    "properties": {
+      "custom_talent_category": "UI Engineering",
+      "hs_createdate": "06/28/24",
+      "t_candidate_id": "50018",
+      "t_city": "Pune",
+      "t_current_position": "Frontend Developer",
+      "t_desired_region_1": "Pune",
+      "t_desired_salary": "125000",
+      "t_experience_level": "Mid-level (3-7 years)",
+      "t_maincategory": "IT",
+      "t_procedure_txt": "Contract"
+    }
+  },
+  {
+    "id": "10019",
+    "properties": {
+      "custom_talent_category": "Networking",
+      "hs_createdate": "06/29/24",
+      "t_candidate_id": "50019",
+      "t_city": "Chennai",
+      "t_current_position": "Network Engineer",
+      "t_desired_region_1": "Chennai",
+      "t_desired_salary": "78000",
+      "t_experience_level": "Mid-level (3-7 years)",
+      "t_maincategory": "Networking",
+      "t_procedure_txt": "Permanent"
+    }
+  },
+  {
+    "id": "10020",
+    "properties": {
+      "custom_talent_category": "IT Support",
+      "hs_createdate": "06/30/24",
+      "t_candidate_id": "50020",
+      "t_city": "Gurugram",
+      "t_current_position": "IT Support Specialist",
+      "t_desired_region_1": "Gurugram",
+      "t_desired_salary": "30000",
+      "t_experience_level": "Junior (0-2 years)",
+      "t_maincategory": "Support",
+      "t_procedure_txt": "Temporary"
+    }
+  },
+  {
+    "id": "10021",
+    "properties": {
+      "custom_talent_category": "Database Administration",
+      "hs_createdate": "07/01/24",
+      "t_candidate_id": "50021",
+      "t_city": "Bengaluru",
+      "t_current_position": "Database Administrator",
+      "t_desired_region_1": "Bengaluru",
+      "t_desired_salary": "110000",
+      "t_experience_level": "Mid-level (3-7 years)",
+      "t_maincategory": "Database",
+      "t_procedure_txt": "Permanent"
+    }
+  },
+  {
+    "id": "10022",
+    "properties": {
+      "custom_talent_category": "Product Management",
+      "hs_createdate": "07/02/24",
+      "t_candidate_id": "50022",
+      "t_city": "Hyderabad",
+      "t_current_position": "Product Manager",
+      "t_desired_region_1": "Hyderabad",
+      "t_desired_salary": "175000",
+      "t_experience_level": "Senior (8+ years)",
+      "t_maincategory": "Management",
+      "t_procedure_txt": "Contract"
+    }
+  },
+  {
+    "id": "10023",
+    "properties": {
+      "custom_talent_category": "Game Development",
+      "hs_createdate": "07/03/24",
+      "t_candidate_id": "50023",
+      "t_city": "Pune",
+      "t_current_position": "Unity Developer",
+      "t_desired_region_1": "Pune",
+      "t_desired_salary": "98000",
+      "t_experience_level": "Mid-level (3-7 years)",
+      "t_maincategory": "Gaming",
+      "t_procedure_txt": "Permanent"
+    }
+  },
+  {
+    "id": "10024",
+    "properties": {
+      "custom_talent_category": "ERP Systems",
+      "hs_createdate": "07/04/24",
+      "t_candidate_id": "50024",
+      "t_city": "Chennai",
+      "t_current_position": "SAP Consultant",
+      "t_desired_region_1": "Chennai",
+      "t_desired_salary": "140000",
+      "t_experience_level": "Senior (8+ years)",
+      "t_maincategory": "ERP",
+      "t_procedure_txt": "Contract"
+    }
+  },
+  {
+    "id": "10025",
+    "properties": {
+      "custom_talent_category": "Consulting",
+      "hs_createdate": "07/05/24",
+      "t_candidate_id": "50025",
+      "t_city": "Gurugram",
+      "t_current_position": "IT Consultant",
+      "t_desired_region_1": "Gurugram",
+      "t_desired_salary": "200000",
+      "t_experience_level": "Senior (8+ years)",
+      "t_maincategory": "Consulting",
+      "t_procedure_txt": "Permanent"
+    }
+  },
+  {
+    "id": "5878995951",
+    "properties": {
+      "custom_talent_category": "Software Development",
+      "hs_createdate": "06/14/24",
+      "t_candidate_id": "49482",
+      "t_city": "Bengaluru",
+      "t_current_position": "Full Stack Developer",
+      "t_desired_region_1": "Bengaluru",
+      "t_desired_salary": "95000",
+      "t_experience_level": "Mid-level (3-7 years)",
+      "t_maincategory": "IT",
+      "t_procedure_txt": "Permanent"
+    }
+  },
+  {
+    "id": "5878995952",
+    "properties": {
+      "custom_talent_category": "Cybersecurity",
+      "hs_createdate": "06/15/24",
+      "t_candidate_id": "49483",
+      "t_city": "Hyderabad",
+      "t_current_position": "Security Analyst",
+      "t_desired_region_1": "Hyderabad",
+      "t_desired_salary": "120000",
+      "t_experience_level": "Senior (7-12 years)",
+      "t_maincategory": "IT Security",
+      "t_procedure_txt": "Contract"
+    }
+  },
+  {
+    "id": "5878995953",
+    "properties": {
+      "custom_talent_category": "Data Analytics",
+      "hs_createdate": "06/16/24",
+      "t_candidate_id": "49484",
+      "t_city": "Pune",
+      "t_current_position": "Data Scientist",
+      "t_desired_region_1": "Pune",
+      "t_desired_salary": "175000",
+      "t_experience_level": "Senior (7-12 years)",
+      "t_maincategory": "Analytics",
+      "t_procedure_txt": "Permanent"
+    }
+  },
+  {
+    "id": "5878995954",
+    "properties": {
+      "custom_talent_category": "Cloud Computing",
+      "hs_createdate": "06/17/24",
+      "t_candidate_id": "49485",
+      "t_city": "Chennai",
+      "t_current_position": "Cloud Engineer",
+      "t_desired_region_1": "Chennai",
+      "t_desired_salary": "145000",
+      "t_experience_level": "Mid-level (3-7 years)",
+      "t_maincategory": "Cloud",
+      "t_procedure_txt": "Permanent"
+    }
+  },
+  {
+    "id": "5878995955",
+    "properties": {
+      "custom_talent_category": "IT Consulting",
+      "hs_createdate": "06/18/24",
+      "t_candidate_id": "49486",
+      "t_city": "Gurugram",
+      "t_current_position": "IT Consultant",
+      "t_desired_region_1": "Gurugram",
+      "t_desired_salary": "160000",
+      "t_experience_level": "Senior (7-12 years)",
+      "t_maincategory": "Consulting",
+      "t_procedure_txt": "Contract"
+    }
+  },
+  {
+    "id": "5878995956",
+    "properties": {
+      "custom_talent_category": "DevOps",
+      "hs_createdate": "06/19/24",
+      "t_candidate_id": "49487",
+      "t_city": "Bengaluru",
+      "t_current_position": "DevOps Engineer",
+      "t_desired_region_1": "Bengaluru",
+      "t_desired_salary": "110000",
+      "t_experience_level": "Mid-level (3-7 years)",
+      "t_maincategory": "Engineering",
+      "t_procedure_txt": "Permanent"
+    }
+  },
+  {
+    "id": "5878995957",
+    "properties": {
+      "custom_talent_category": "UI/UX Design",
+      "hs_createdate": "06/20/24",
+      "t_candidate_id": "49488",
+      "t_city": "Hyderabad",
+      "t_current_position": "UI/UX Designer",
+      "t_desired_region_1": "Hyderabad",
+      "t_desired_salary": "70000",
+      "t_experience_level": "Junior (1-3 years)",
+      "t_maincategory": "Design",
+      "t_procedure_txt": "Temporary"
+    }
+  },
+  {
+    "id": "5878995958",
+    "properties": {
+      "custom_talent_category": "Testing",
+      "hs_createdate": "06/21/24",
+      "t_candidate_id": "49489",
+      "t_city": "Pune",
+      "t_current_position": "QA Engineer",
+      "t_desired_region_1": "Pune",
+      "t_desired_salary": "55000",
+      "t_experience_level": "Junior (1-3 years)",
+      "t_maincategory": "QA",
+      "t_procedure_txt": "Permanent"
+    }
+  },
+  {
+    "id": "5878995959",
+    "properties": {
+      "custom_talent_category": "AI/ML",
+      "hs_createdate": "06/22/24",
+      "t_candidate_id": "49490",
+      "t_city": "Chennai",
+      "t_current_position": "ML Engineer",
+      "t_desired_region_1": "Chennai",
+      "t_desired_salary": "185000",
+      "t_experience_level": "Senior (7-12 years)",
+      "t_maincategory": "AI",
+      "t_procedure_txt": "Permanent"
+    }
+  },
+  {
+    "id": "5878995960",
+    "properties": {
+      "custom_talent_category": "ERP",
+      "hs_createdate": "06/23/24",
+      "t_candidate_id": "49491",
+      "t_city": "Gurugram",
+      "t_current_position": "SAP Consultant",
+      "t_desired_region_1": "Gurugram",
+      "t_desired_salary": "150000",
+      "t_experience_level": "Mid-level (3-7 years)",
+      "t_maincategory": "ERP",
+      "t_procedure_txt": "Contract"
+    }
+  },
+  {
+    "id": "5878995961",
+    "properties": {
+      "custom_talent_category": "Mobile Development",
+      "hs_createdate": "06/24/24",
+      "t_candidate_id": "49492",
+      "t_city": "Bengaluru",
+      "t_current_position": "Android Developer",
+      "t_desired_region_1": "Bengaluru",
+      "t_desired_salary": "85000",
+      "t_experience_level": "Mid-level (3-7 years)",
+      "t_maincategory": "Mobile",
+      "t_procedure_txt": "Permanent"
+    }
+  },
+  {
+    "id": "5878995962",
+    "properties": {
+      "custom_talent_category": "Backend Development",
+      "hs_createdate": "06/25/24",
+      "t_candidate_id": "49493",
+      "t_city": "Hyderabad",
+      "t_current_position": "Java Developer",
+      "t_desired_region_1": "Hyderabad",
+      "t_desired_salary": "135000",
+      "t_experience_level": "Senior (7-12 years)",
+      "t_maincategory": "Development",
+      "t_procedure_txt": "Contract"
+    }
+  },
+  {
+    "id": "5878995963",
+    "properties": {
+      "custom_talent_category": "Frontend Development",
+      "hs_createdate": "06/26/24",
+      "t_candidate_id": "49494",
+      "t_city": "Pune",
+      "t_current_position": "React.js Developer",
+      "t_desired_region_1": "Pune",
+      "t_desired_salary": "95000",
+      "t_experience_level": "Mid-level (3-7 years)",
+      "t_maincategory": "Development",
+      "t_procedure_txt": "Permanent"
+    }
+  },
+  {
+    "id": "5878995964",
+    "properties": {
+      "custom_talent_category": "Project Management",
+      "hs_createdate": "06/27/24",
+      "t_candidate_id": "49495",
+      "t_city": "Chennai",
+      "t_current_position": "Agile Project Manager",
+      "t_desired_region_1": "Chennai",
+      "t_desired_salary": "180000",
+      "t_experience_level": "Senior (7-12 years)",
+      "t_maincategory": "Management",
+      "t_procedure_txt": "Permanent"
+    }
+  },
+  {
+    "id": "5878995965",
+    "properties": {
+      "custom_talent_category": "Network Engineering",
+      "hs_createdate": "06/28/24",
+      "t_candidate_id": "49496",
+      "t_city": "Gurugram",
+      "t_current_position": "Network Engineer",
+      "t_desired_region_1": "Gurugram",
+      "t_desired_salary": "70000",
+      "t_experience_level": "Junior (1-3 years)",
+      "t_maincategory": "Networking",
+      "t_procedure_txt": "Temporary"
+    }
+  },
+  {
+    "id": "5878995966",
+    "properties": {
+      "custom_talent_category": "Product Management",
+      "hs_createdate": "06/29/24",
+      "t_candidate_id": "49497",
+      "t_city": "Bengaluru",
+      "t_current_position": "Product Manager",
+      "t_desired_region_1": "Bengaluru",
+      "t_desired_salary": "165000",
+      "t_experience_level": "Senior (7-12 years)",
+      "t_maincategory": "Product",
+      "t_procedure_txt": "Permanent"
+    }
+  },
+  {
+    "id": "5878995967",
+    "properties": {
+      "custom_talent_category": "Game Development",
+      "hs_createdate": "06/30/24",
+      "t_candidate_id": "49498",
+      "t_city": "Hyderabad",
+      "t_current_position": "Unity Developer",
+      "t_desired_region_1": "Hyderabad",
+      "t_desired_salary": "90000",
+      "t_experience_level": "Mid-level (3-7 years)",
+      "t_maincategory": "Gaming",
+      "t_procedure_txt": "Contract"
+    }
+  },
+  {
+    "id": "5878995968",
+    "properties": {
+      "custom_talent_category": "Database Administration",
+      "hs_createdate": "07/01/24",
+      "t_candidate_id": "49499",
+      "t_city": "Pune",
+      "t_current_position": "Database Administrator",
+      "t_desired_region_1": "Pune",
+      "t_desired_salary": "125000",
+      "t_experience_level": "Senior (7-12 years)",
+      "t_maincategory": "Database",
+      "t_procedure_txt": "Permanent"
+    }
+  },
+  {
+    "id": "5878995968",
+    "properties": {
+      "custom_talent_category": "Database Administration",
+      "hs_createdate": "07/01/24",
+      "t_candidate_id": "49499",
+      "t_city": "Pune",
+      "t_current_position": "Database Administrator",
+      "t_desired_region_1": "Pune",
+      "t_desired_salary": "125000",
+      "t_experience_level": "Senior (7-12 years)",
+      "t_maincategory": "Database",
+      "t_procedure_txt": "Permanent"
+    }
+  },
+  {
+    "id": "5878995968",
+    "properties": {
+      "custom_talent_category": "Database Administration",
+      "hs_createdate": "07/01/24",
+      "t_candidate_id": "49499",
+      "t_city": "Pune",
+      "t_current_position": "Database Administrator",
+      "t_desired_region_1": "Pune",
+      "t_desired_salary": "125000",
+      "t_experience_level": "Senior (7-12 years)",
+      "t_maincategory": "Database",
+      "t_procedure_txt": "Permanent"
+    }
+  },
+  {
+    "id": "5878995969",
+    "properties": {
+      "custom_talent_category": "Systems Administration",
+      "hs_createdate": "07/02/24",
+      "t_candidate_id": "49500",
+      "t_city": "Chennai",
+      "t_current_position": "System Administrator",
+      "t_desired_region_1": "Chennai",
+      "t_desired_salary": "60000",
+      "t_experience_level": "Junior (1-3 years)",
+      "t_maincategory": "Administration",
+      "t_procedure_txt": "Temporary"
+    }
+  },
+  {
+    "id": "5878995970",
+    "properties": {
+      "custom_talent_category": "Blockchain Development",
+      "hs_createdate": "07/03/24",
+      "t_candidate_id": "49501",
+      "t_city": "Gurugram",
+      "t_current_position": "Blockchain Engineer",
+      "t_desired_region_1": "Gurugram",
+      "t_desired_salary": "175000",
+      "t_experience_level": "Senior (7-12 years)",
+      "t_maincategory": "Blockchain",
+      "t_procedure_txt": "Contract"
+    }
+  },
+  {
+    "id": "5878995969",
+    "properties": {
+      "custom_talent_category": "Systems Administration",
+      "hs_createdate": "07/02/24",
+      "t_candidate_id": "49500",
+      "t_city": "Chennai",
+      "t_current_position": "System Administrator",
+      "t_desired_region_1": "Chennai",
+      "t_desired_salary": "60000",
+      "t_experience_level": "Junior (1-3 years)",
+      "t_maincategory": "Administration",
+      "t_procedure_txt": "Temporary"
+    }
+  },
+  {
+    "id": "5878995970",
+    "properties": {
+      "custom_talent_category": "Blockchain Development",
+      "hs_createdate": "07/03/24",
+      "t_candidate_id": "49501",
+      "t_city": "Gurugram",
+      "t_current_position": "Blockchain Engineer",
+      "t_desired_region_1": "Gurugram",
+      "t_desired_salary": "175000",
+      "t_experience_level": "Senior (7-12 years)",
+      "t_maincategory": "Blockchain",
+      "t_procedure_txt": "Contract"
+    }
+  },
+  {
+    "id": "10001",
+    "properties": {
+      "custom_talent_category": "Finance",
+      "hs_createdate": "06/11/24",
+      "t_candidate_id": "50001",
+      "t_city": "Bengaluru",
+      "t_current_position": "Financial Analyst",
+      "t_desired_region_1": "Bengaluru",
+      "t_desired_salary": "45000",
+      "t_experience_level": "Junior (0-2 years)",
+      "t_maincategory": "Finance",
+      "t_procedure_txt": "Permanent"
+    }
+  },
+  {
+    "id": "10002",
+    "properties": {
+      "custom_talent_category": "Software Development",
+      "hs_createdate": "06/12/24",
+      "t_candidate_id": "50002",
+      "t_city": "Hyderabad",
+      "t_current_position": "Backend Developer",
+      "t_desired_region_1": "Hyderabad",
+      "t_desired_salary": "120000",
+      "t_experience_level": "Mid-level (3-7 years)",
+      "t_maincategory": "IT",
+      "t_procedure_txt": "Contract"
+    }
+  },
+  {
+    "id": "10003",
+    "properties": {
+      "custom_talent_category": "Data Science",
+      "hs_createdate": "06/13/24",
+      "t_candidate_id": "50003",
+      "t_city": "Pune",
+      "t_current_position": "Data Analyst",
+      "t_desired_region_1": "Pune",
+      "t_desired_salary": "75000",
+      "t_experience_level": "Junior (0-2 years)",
+      "t_maincategory": "Analytics",
+      "t_procedure_txt": "Temporary"
+    }
+  },
+  {
+    "id": "10004",
+    "properties": {
+      "custom_talent_category": "Cloud Computing",
+      "hs_createdate": "06/14/24",
+      "t_candidate_id": "50004",
+      "t_city": "Chennai",
+      "t_current_position": "Cloud Engineer",
+      "t_desired_region_1": "Chennai",
+      "t_desired_salary": "150000",
+      "t_experience_level": "Senior (8+ years)",
+      "t_maincategory": "IT Infrastructure",
+      "t_procedure_txt": "Permanent"
+    }
+  },
+  {
+    "id": "10005",
+    "properties": {
+      "custom_talent_category": "UI/UX Design",
+      "hs_createdate": "06/15/24",
+      "t_candidate_id": "50005",
+      "t_city": "Gurugram",
+      "t_current_position": "UI/UX Designer",
+      "t_desired_region_1": "Gurugram",
+      "t_desired_salary": "95000",
+      "t_experience_level": "Mid-level (3-7 years)",
+      "t_maincategory": "Design",
+      "t_procedure_txt": "Contract"
+    }
+  },
+  {
+    "id": "10006",
+    "properties": {
+      "custom_talent_category": "Cybersecurity",
+      "hs_createdate": "06/16/24",
+      "t_candidate_id": "50006",
+      "t_city": "Bengaluru",
+      "t_current_position": "Security Analyst",
+      "t_desired_region_1": "Bengaluru",
+      "t_desired_salary": "130000",
+      "t_experience_level": "Mid-level (3-7 years)",
+      "t_maincategory": "IT Security",
+      "t_procedure_txt": "Permanent"
+    }
+  },
+  {
+    "id": "10007",
+    "properties": {
+      "custom_talent_category": "Finance & Accounts",
+      "hs_createdate": "06/17/24",
+      "t_candidate_id": "50007",
+      "t_city": "Hyderabad",
+      "t_current_position": "Accounts Executive",
+      "t_desired_region_1": "Hyderabad",
+      "t_desired_salary": "40000",
+      "t_experience_level": "Junior (0-2 years)",
+      "t_maincategory": "Finance",
+      "t_procedure_txt": "Temporary"
+    }
+  },
+  {
+    "id": "10008",
+    "properties": {
+      "custom_talent_category": "Human Resources",
+      "hs_createdate": "06/18/24",
+      "t_candidate_id": "50008",
+      "t_city": "Pune",
+      "t_current_position": "HR Manager",
+      "t_desired_region_1": "Pune",
+      "t_desired_salary": "110000",
+      "t_experience_level": "Senior (8+ years)",
+      "t_maincategory": "HR",
+      "t_procedure_txt": "Permanent"
+    }
+  },
+  {
+    "id": "10009",
+    "properties": {
+      "custom_talent_category": "Project Management",
+      "hs_createdate": "06/19/24",
+      "t_candidate_id": "50009",
+      "t_city": "Chennai",
+      "t_current_position": "Project Manager",
+      "t_desired_region_1": "Chennai",
+      "t_desired_salary": "160000",
+      "t_experience_level": "Senior (8+ years)",
+      "t_maincategory": "Management",
+      "t_procedure_txt": "Contract"
+    }
+  },
+  {
+    "id": "10010",
+    "properties": {
+      "custom_talent_category": "DevOps",
+      "hs_createdate": "06/20/24",
+      "t_candidate_id": "50010",
+      "t_city": "Gurugram",
+      "t_current_position": "DevOps Engineer",
+      "t_desired_region_1": "Gurugram",
+      "t_desired_salary": "145000",
+      "t_experience_level": "Mid-level (3-7 years)",
+      "t_maincategory": "IT",
+      "t_procedure_txt": "Permanent"
+    }
+  },
+  {
+    "id": "10011",
+    "properties": {
+      "custom_talent_category": "Mobile Development",
+      "hs_createdate": "06/21/24",
+      "t_candidate_id": "50011",
+      "t_city": "Bengaluru",
+      "t_current_position": "Android Developer",
+      "t_desired_region_1": "Bengaluru",
+      "t_desired_salary": "80000",
+      "t_experience_level": "Junior (0-2 years)",
+      "t_maincategory": "IT",
+      "t_procedure_txt": "Temporary"
+    }
+  },
+  {
+    "id": "10012",
+    "properties": {
+      "custom_talent_category": "Artificial Intelligence",
+      "hs_createdate": "06/22/24",
+      "t_candidate_id": "50012",
+      "t_city": "Hyderabad",
+      "t_current_position": "ML Engineer",
+      "t_desired_region_1": "Hyderabad",
+      "t_desired_salary": "155000",
+      "t_experience_level": "Senior (8+ years)",
+      "t_maincategory": "AI",
+      "t_procedure_txt": "Permanent"
+    }
+  },
+  {
+    "id": "10013",
+    "properties": {
+      "custom_talent_category": "Testing",
+      "hs_createdate": "06/23/24",
+      "t_candidate_id": "50013",
+      "t_city": "Pune",
+      "t_current_position": "QA Tester",
+      "t_desired_region_1": "Pune",
+      "t_desired_salary": "60000",
+      "t_experience_level": "Junior (0-2 years)",
+      "t_maincategory": "QA",
+      "t_procedure_txt": "Contract"
+    }
+  },
+  {
+    "id": "10001",
+    "properties": {
+      "custom_talent_category": "Finance",
+      "hs_createdate": "06/11/24",
+      "t_candidate_id": "50001",
+      "t_city": "Bengaluru",
+      "t_current_position": "Financial Analyst",
+      "t_desired_region_1": "Bengaluru",
+      "t_desired_salary": "45000",
+      "t_experience_level": "Junior (0-2 years)",
+      "t_maincategory": "Finance",
+      "t_procedure_txt": "Permanent"
+    }
+  },
+  {
+    "id": "10002",
+    "properties": {
+      "custom_talent_category": "Software Development",
+      "hs_createdate": "06/12/24",
+      "t_candidate_id": "50002",
+      "t_city": "Hyderabad",
+      "t_current_position": "Backend Developer",
+      "t_desired_region_1": "Hyderabad",
+      "t_desired_salary": "120000",
+      "t_experience_level": "Mid-level (3-7 years)",
+      "t_maincategory": "IT",
+      "t_procedure_txt": "Contract"
+    }
+  },
+  {
+    "id": "10003",
+    "properties": {
+      "custom_talent_category": "Data Science",
+      "hs_createdate": "06/13/24",
+      "t_candidate_id": "50003",
+      "t_city": "Pune",
+      "t_current_position": "Data Analyst",
+      "t_desired_region_1": "Pune",
+      "t_desired_salary": "75000",
+      "t_experience_level": "Junior (0-2 years)",
+      "t_maincategory": "Analytics",
+      "t_procedure_txt": "Temporary"
+    }
+  },
+  {
+    "id": "10004",
+    "properties": {
+      "custom_talent_category": "Cloud Computing",
+      "hs_createdate": "06/14/24",
+      "t_candidate_id": "50004",
+      "t_city": "Chennai",
+      "t_current_position": "Cloud Engineer",
+      "t_desired_region_1": "Chennai",
+      "t_desired_salary": "150000",
+      "t_experience_level": "Senior (8+ years)",
+      "t_maincategory": "IT Infrastructure",
+      "t_procedure_txt": "Permanent"
+    }
+  },
+  {
+    "id": "10005",
+    "properties": {
+      "custom_talent_category": "UI/UX Design",
+      "hs_createdate": "06/15/24",
+      "t_candidate_id": "50005",
+      "t_city": "Gurugram",
+      "t_current_position": "UI/UX Designer",
+      "t_desired_region_1": "Gurugram",
+      "t_desired_salary": "95000",
+      "t_experience_level": "Mid-level (3-7 years)",
+      "t_maincategory": "Design",
+      "t_procedure_txt": "Contract"
+    }
+  },
+  {
+    "id": "10006",
+    "properties": {
+      "custom_talent_category": "Cybersecurity",
+      "hs_createdate": "06/16/24",
+      "t_candidate_id": "50006",
+      "t_city": "Bengaluru",
+      "t_current_position": "Security Analyst",
+      "t_desired_region_1": "Bengaluru",
+      "t_desired_salary": "130000",
+      "t_experience_level": "Mid-level (3-7 years)",
+      "t_maincategory": "IT Security",
+      "t_procedure_txt": "Permanent"
+    }
+  },
+  {
+    "id": "10007",
+    "properties": {
+      "custom_talent_category": "Finance & Accounts",
+      "hs_createdate": "06/17/24",
+      "t_candidate_id": "50007",
+      "t_city": "Hyderabad",
+      "t_current_position": "Accounts Executive",
+      "t_desired_region_1": "Hyderabad",
+      "t_desired_salary": "40000",
+      "t_experience_level": "Junior (0-2 years)",
+      "t_maincategory": "Finance",
+      "t_procedure_txt": "Temporary"
+    }
+  },
+  {
+    "id": "10008",
+    "properties": {
+      "custom_talent_category": "Human Resources",
+      "hs_createdate": "06/18/24",
+      "t_candidate_id": "50008",
+      "t_city": "Pune",
+      "t_current_position": "HR Manager",
+      "t_desired_region_1": "Pune",
+      "t_desired_salary": "110000",
+      "t_experience_level": "Senior (8+ years)",
+      "t_maincategory": "HR",
+      "t_procedure_txt": "Permanent"
+    }
+  },
+  {
+    "id": "10009",
+    "properties": {
+      "custom_talent_category": "Project Management",
+      "hs_createdate": "06/19/24",
+      "t_candidate_id": "50009",
+      "t_city": "Chennai",
+      "t_current_position": "Project Manager",
+      "t_desired_region_1": "Chennai",
+      "t_desired_salary": "160000",
+      "t_experience_level": "Senior (8+ years)",
+      "t_maincategory": "Management",
+      "t_procedure_txt": "Contract"
+    }
+  },
+  {
+    "id": "10010",
+    "properties": {
+      "custom_talent_category": "DevOps",
+      "hs_createdate": "06/20/24",
+      "t_candidate_id": "50010",
+      "t_city": "Gurugram",
+      "t_current_position": "DevOps Engineer",
+      "t_desired_region_1": "Gurugram",
+      "t_desired_salary": "145000",
+      "t_experience_level": "Mid-level (3-7 years)",
+      "t_maincategory": "IT",
+      "t_procedure_txt": "Permanent"
+    }
+  },
+  {
+    "id": "10011",
+    "properties": {
+      "custom_talent_category": "Mobile Development",
+      "hs_createdate": "06/21/24",
+      "t_candidate_id": "50011",
+      "t_city": "Bengaluru",
+      "t_current_position": "Android Developer",
+      "t_desired_region_1": "Bengaluru",
+      "t_desired_salary": "80000",
+      "t_experience_level": "Junior (0-2 years)",
+      "t_maincategory": "IT",
+      "t_procedure_txt": "Temporary"
+    }
+  },
+  {
+    "id": "10012",
+    "properties": {
+      "custom_talent_category": "Artificial Intelligence",
+      "hs_createdate": "06/22/24",
+      "t_candidate_id": "50012",
+      "t_city": "Hyderabad",
+      "t_current_position": "ML Engineer",
+      "t_desired_region_1": "Hyderabad",
+      "t_desired_salary": "155000",
+      "t_experience_level": "Senior (8+ years)",
+      "t_maincategory": "AI",
+      "t_procedure_txt": "Permanent"
+    }
+  },
+  {
+    "id": "10013",
+    "properties": {
+      "custom_talent_category": "Testing",
+      "hs_createdate": "06/23/24",
+      "t_candidate_id": "50013",
+      "t_city": "Pune",
+      "t_current_position": "QA Tester",
+      "t_desired_region_1": "Pune",
+      "t_desired_salary": "60000",
+      "t_experience_level": "Junior (0-2 years)",
+      "t_maincategory": "QA",
+      "t_procedure_txt": "Contract"
+    }
+  },
+  {
+    "id": "10014",
+    "properties": {
+      "custom_talent_category": "Business Analysis",
+      "hs_createdate": "06/24/24",
+      "t_candidate_id": "50014",
+      "t_city": "Chennai",
+      "t_current_position": "Business Analyst",
+      "t_desired_region_1": "Chennai",
+      "t_desired_salary": "95000",
+      "t_experience_level": "Mid-level (3-7 years)",
+      "t_maincategory": "Business",
+      "t_procedure_txt": "Permanent"
+    }
+  },
+  {
+    "id": "10015",
+    "properties": {
+      "custom_talent_category": "Full Stack Development",
+      "hs_createdate": "06/25/24",
+      "t_candidate_id": "50015",
+      "t_city": "Gurugram",
+      "t_current_position": "Full Stack Engineer",
+      "t_desired_region_1": "Gurugram",
+      "t_desired_salary": "170000",
+      "t_experience_level": "Senior (8+ years)",
+      "t_maincategory": "IT",
+      "t_procedure_txt": "Contract"
+    }
+  },
+  {
+    "id": "10016",
+    "properties": {
+      "custom_talent_category": "Cloud Architecture",
+      "hs_createdate": "06/26/24",
+      "t_candidate_id": "50016",
+      "t_city": "Bengaluru",
+      "t_current_position": "Cloud Architect",
+      "t_desired_region_1": "Bengaluru",
+      "t_desired_salary": "185000",
+      "t_experience_level": "Senior (8+ years)",
+      "t_maincategory": "IT Infrastructure",
+      "t_procedure_txt": "Permanent"
+    }
+  },
+  {
+    "id": "10017",
+    "properties": {
+      "custom_talent_category": "Digital Marketing",
+      "hs_createdate": "06/27/24",
+      "t_candidate_id": "50017",
+      "t_city": "Hyderabad",
+      "t_current_position": "SEO Specialist",
+      "t_desired_region_1": "Hyderabad",
+      "t_desired_salary": "50000",
+      "t_experience_level": "Junior (0-2 years)",
+      "t_maincategory": "Marketing",
+      "t_procedure_txt": "Temporary"
+    }
+  },
+  {
+    "id": "10018",
+    "properties": {
+      "custom_talent_category": "UI Engineering",
+      "hs_createdate": "06/28/24",
+      "t_candidate_id": "50018",
+      "t_city": "Pune",
+      "t_current_position": "Frontend Developer",
+      "t_desired_region_1": "Pune",
+      "t_desired_salary": "125000",
+      "t_experience_level": "Mid-level (3-7 years)",
+      "t_maincategory": "IT",
+      "t_procedure_txt": "Contract"
+    }
+  },
+  {
+    "id": "10019",
+    "properties": {
+      "custom_talent_category": "Networking",
+      "hs_createdate": "06/29/24",
+      "t_candidate_id": "50019",
+      "t_city": "Chennai",
+      "t_current_position": "Network Engineer",
+      "t_desired_region_1": "Chennai",
+      "t_desired_salary": "78000",
+      "t_experience_level": "Mid-level (3-7 years)",
+      "t_maincategory": "Networking",
+      "t_procedure_txt": "Permanent"
+    }
+  },
+  {
+    "id": "10020",
+    "properties": {
+      "custom_talent_category": "IT Support",
+      "hs_createdate": "06/30/24",
+      "t_candidate_id": "50020",
+      "t_city": "Gurugram",
+      "t_current_position": "IT Support Specialist",
+      "t_desired_region_1": "Gurugram",
+      "t_desired_salary": "30000",
+      "t_experience_level": "Junior (0-2 years)",
+      "t_maincategory": "Support",
+      "t_procedure_txt": "Temporary"
+    }
+  },
+  {
+    "id": "10021",
+    "properties": {
+      "custom_talent_category": "Database Administration",
+      "hs_createdate": "07/01/24",
+      "t_candidate_id": "50021",
+      "t_city": "Bengaluru",
+      "t_current_position": "Database Administrator",
+      "t_desired_region_1": "Bengaluru",
+      "t_desired_salary": "110000",
+      "t_experience_level": "Mid-level (3-7 years)",
+      "t_maincategory": "Database",
+      "t_procedure_txt": "Permanent"
+    }
+  },
+  {
+    "id": "10022",
+    "properties": {
+      "custom_talent_category": "Product Management",
+      "hs_createdate": "07/02/24",
+      "t_candidate_id": "50022",
+      "t_city": "Hyderabad",
+      "t_current_position": "Product Manager",
+      "t_desired_region_1": "Hyderabad",
+      "t_desired_salary": "175000",
+      "t_experience_level": "Senior (8+ years)",
+      "t_maincategory": "Management",
+      "t_procedure_txt": "Contract"
+    }
+  },
+  {
+    "id": "10023",
+    "properties": {
+      "custom_talent_category": "Game Development",
+      "hs_createdate": "07/03/24",
+      "t_candidate_id": "50023",
+      "t_city": "Pune",
+      "t_current_position": "Unity Developer",
+      "t_desired_region_1": "Pune",
+      "t_desired_salary": "98000",
+      "t_experience_level": "Mid-level (3-7 years)",
+      "t_maincategory": "Gaming",
+      "t_procedure_txt": "Permanent"
+    }
+  },
+  {
+    "id": "10024",
+    "properties": {
+      "custom_talent_category": "ERP Systems",
+      "hs_createdate": "07/04/24",
+      "t_candidate_id": "50024",
+      "t_city": "Chennai",
+      "t_current_position": "SAP Consultant",
+      "t_desired_region_1": "Chennai",
+      "t_desired_salary": "140000",
+      "t_experience_level": "Senior (8+ years)",
+      "t_maincategory": "ERP",
+      "t_procedure_txt": "Contract"
+    }
+  },
+  {
+    "id": "10025",
+    "properties": {
+      "custom_talent_category": "Consulting",
+      "hs_createdate": "07/05/24",
+      "t_candidate_id": "50025",
+      "t_city": "Gurugram",
+      "t_current_position": "IT Consultant",
+      "t_desired_region_1": "Gurugram",
+      "t_desired_salary": "200000",
+      "t_experience_level": "Senior (8+ years)",
+      "t_maincategory": "Consulting",
+      "t_procedure_txt": "Permanent"
+    }
+  },
+  {
+    "id": "5878995951",
+    "properties": {
+      "custom_talent_category": "Software Development",
+      "hs_createdate": "06/14/24",
+      "t_candidate_id": "49482",
+      "t_city": "Bengaluru",
+      "t_current_position": "Full Stack Developer",
+      "t_desired_region_1": "Bengaluru",
+      "t_desired_salary": "95000",
+      "t_experience_level": "Mid-level (3-7 years)",
+      "t_maincategory": "IT",
+      "t_procedure_txt": "Permanent"
+    }
+  },
+  {
+    "id": "5878995952",
+    "properties": {
+      "custom_talent_category": "Cybersecurity",
+      "hs_createdate": "06/15/24",
+      "t_candidate_id": "49483",
+      "t_city": "Hyderabad",
+      "t_current_position": "Security Analyst",
+      "t_desired_region_1": "Hyderabad",
+      "t_desired_salary": "120000",
+      "t_experience_level": "Senior (7-12 years)",
+      "t_maincategory": "IT Security",
+      "t_procedure_txt": "Contract"
+    }
+  },
+  {
+    "id": "5878995953",
+    "properties": {
+      "custom_talent_category": "Data Analytics",
+      "hs_createdate": "06/16/24",
+      "t_candidate_id": "49484",
+      "t_city": "Pune",
+      "t_current_position": "Data Scientist",
+      "t_desired_region_1": "Pune",
+      "t_desired_salary": "175000",
+      "t_experience_level": "Senior (7-12 years)",
+      "t_maincategory": "Analytics",
+      "t_procedure_txt": "Permanent"
+    }
+  },
+  {
+    "id": "5878995954",
+    "properties": {
+      "custom_talent_category": "Cloud Computing",
+      "hs_createdate": "06/17/24",
+      "t_candidate_id": "49485",
+      "t_city": "Chennai",
+      "t_current_position": "Cloud Engineer",
+      "t_desired_region_1": "Chennai",
+      "t_desired_salary": "145000",
+      "t_experience_level": "Mid-level (3-7 years)",
+      "t_maincategory": "Cloud",
+      "t_procedure_txt": "Permanent"
+    }
+  },
+  {
+    "id": "5878995955",
+    "properties": {
+      "custom_talent_category": "IT Consulting",
+      "hs_createdate": "06/18/24",
+      "t_candidate_id": "49486",
+      "t_city": "Gurugram",
+      "t_current_position": "IT Consultant",
+      "t_desired_region_1": "Gurugram",
+      "t_desired_salary": "160000",
+      "t_experience_level": "Senior (7-12 years)",
+      "t_maincategory": "Consulting",
+      "t_procedure_txt": "Contract"
+    }
+  },
+  {
+    "id": "5878995956",
+    "properties": {
+      "custom_talent_category": "DevOps",
+      "hs_createdate": "06/19/24",
+      "t_candidate_id": "49487",
+      "t_city": "Bengaluru",
+      "t_current_position": "DevOps Engineer",
+      "t_desired_region_1": "Bengaluru",
+      "t_desired_salary": "110000",
+      "t_experience_level": "Mid-level (3-7 years)",
+      "t_maincategory": "Engineering",
+      "t_procedure_txt": "Permanent"
+    }
+  },
+  {
+    "id": "5878995957",
+    "properties": {
+      "custom_talent_category": "UI/UX Design",
+      "hs_createdate": "06/20/24",
+      "t_candidate_id": "49488",
+      "t_city": "Hyderabad",
+      "t_current_position": "UI/UX Designer",
+      "t_desired_region_1": "Hyderabad",
+      "t_desired_salary": "70000",
+      "t_experience_level": "Junior (1-3 years)",
+      "t_maincategory": "Design",
+      "t_procedure_txt": "Temporary"
+    }
+  },
+  {
+    "id": "5878995958",
+    "properties": {
+      "custom_talent_category": "Testing",
+      "hs_createdate": "06/21/24",
+      "t_candidate_id": "49489",
+      "t_city": "Pune",
+      "t_current_position": "QA Engineer",
+      "t_desired_region_1": "Pune",
+      "t_desired_salary": "55000",
+      "t_experience_level": "Junior (1-3 years)",
+      "t_maincategory": "QA",
+      "t_procedure_txt": "Permanent"
+    }
+  },
+  {
+    "id": "5878995959",
+    "properties": {
+      "custom_talent_category": "AI/ML",
+      "hs_createdate": "06/22/24",
+      "t_candidate_id": "49490",
+      "t_city": "Chennai",
+      "t_current_position": "ML Engineer",
+      "t_desired_region_1": "Chennai",
+      "t_desired_salary": "185000",
+      "t_experience_level": "Senior (7-12 years)",
+      "t_maincategory": "AI",
+      "t_procedure_txt": "Permanent"
+    }
+  },
+  {
+    "id": "5878995960",
+    "properties": {
+      "custom_talent_category": "ERP",
+      "hs_createdate": "06/23/24",
+      "t_candidate_id": "49491",
+      "t_city": "Gurugram",
+      "t_current_position": "SAP Consultant",
+      "t_desired_region_1": "Gurugram",
+      "t_desired_salary": "150000",
+      "t_experience_level": "Mid-level (3-7 years)",
+      "t_maincategory": "ERP",
+      "t_procedure_txt": "Contract"
+    }
+  },
+  {
+    "id": "5878995961",
+    "properties": {
+      "custom_talent_category": "Mobile Development",
+      "hs_createdate": "06/24/24",
+      "t_candidate_id": "49492",
+      "t_city": "Bengaluru",
+      "t_current_position": "Android Developer",
+      "t_desired_region_1": "Bengaluru",
+      "t_desired_salary": "85000",
+      "t_experience_level": "Mid-level (3-7 years)",
+      "t_maincategory": "Mobile",
+      "t_procedure_txt": "Permanent"
+    }
+  },
+  {
+    "id": "5878995962",
+    "properties": {
+      "custom_talent_category": "Backend Development",
+      "hs_createdate": "06/25/24",
+      "t_candidate_id": "49493",
+      "t_city": "Hyderabad",
+      "t_current_position": "Java Developer",
+      "t_desired_region_1": "Hyderabad",
+      "t_desired_salary": "135000",
+      "t_experience_level": "Senior (7-12 years)",
+      "t_maincategory": "Development",
+      "t_procedure_txt": "Contract"
+    }
+  },
+  {
+    "id": "5878995963",
+    "properties": {
+      "custom_talent_category": "Frontend Development",
+      "hs_createdate": "06/26/24",
+      "t_candidate_id": "49494",
+      "t_city": "Pune",
+      "t_current_position": "React.js Developer",
+      "t_desired_region_1": "Pune",
+      "t_desired_salary": "95000",
+      "t_experience_level": "Mid-level (3-7 years)",
+      "t_maincategory": "Development",
+      "t_procedure_txt": "Permanent"
+    }
+  },
+  {
+    "id": "5878995964",
+    "properties": {
+      "custom_talent_category": "Project Management",
+      "hs_createdate": "06/27/24",
+      "t_candidate_id": "49495",
+      "t_city": "Chennai",
+      "t_current_position": "Agile Project Manager",
+      "t_desired_region_1": "Chennai",
+      "t_desired_salary": "180000",
+      "t_experience_level": "Senior (7-12 years)",
+      "t_maincategory": "Management",
+      "t_procedure_txt": "Permanent"
+    }
+  },
+  {
+    "id": "5878995965",
+    "properties": {
+      "custom_talent_category": "Network Engineering",
+      "hs_createdate": "06/28/24",
+      "t_candidate_id": "49496",
+      "t_city": "Gurugram",
+      "t_current_position": "Network Engineer",
+      "t_desired_region_1": "Gurugram",
+      "t_desired_salary": "70000",
+      "t_experience_level": "Junior (1-3 years)",
+      "t_maincategory": "Networking",
+      "t_procedure_txt": "Temporary"
+    }
+  },
+  {
+    "id": "5878995966",
+    "properties": {
+      "custom_talent_category": "Product Management",
+      "hs_createdate": "06/29/24",
+      "t_candidate_id": "49497",
+      "t_city": "Bengaluru",
+      "t_current_position": "Product Manager",
+      "t_desired_region_1": "Bengaluru",
+      "t_desired_salary": "165000",
+      "t_experience_level": "Senior (7-12 years)",
+      "t_maincategory": "Product",
+      "t_procedure_txt": "Permanent"
+    }
+  },
+  {
+    "id": "5878995967",
+    "properties": {
+      "custom_talent_category": "Game Development",
+      "hs_createdate": "06/30/24",
+      "t_candidate_id": "49498",
+      "t_city": "Hyderabad",
+      "t_current_position": "Unity Developer",
+      "t_desired_region_1": "Hyderabad",
+      "t_desired_salary": "90000",
+      "t_experience_level": "Mid-level (3-7 years)",
+      "t_maincategory": "Gaming",
+      "t_procedure_txt": "Contract"
+    }
+  },
+  {
+    "id": "5878995968",
+    "properties": {
+      "custom_talent_category": "Database Administration",
+      "hs_createdate": "07/01/24",
+      "t_candidate_id": "49499",
+      "t_city": "Pune",
+      "t_current_position": "Database Administrator",
+      "t_desired_region_1": "Pune",
+      "t_desired_salary": "125000",
+      "t_experience_level": "Senior (7-12 years)",
+      "t_maincategory": "Database",
+      "t_procedure_txt": "Permanent"
+    }
+  },
+  {
+    "id": "5878995968",
+    "properties": {
+      "custom_talent_category": "Database Administration",
+      "hs_createdate": "07/01/24",
+      "t_candidate_id": "49499",
+      "t_city": "Pune",
+      "t_current_position": "Database Administrator",
+      "t_desired_region_1": "Pune",
+      "t_desired_salary": "125000",
+      "t_experience_level": "Senior (7-12 years)",
+      "t_maincategory": "Database",
+      "t_procedure_txt": "Permanent"
+    }
+  },
+  {
+    "id": "5878995968",
+    "properties": {
+      "custom_talent_category": "Database Administration",
+      "hs_createdate": "07/01/24",
+      "t_candidate_id": "49499",
+      "t_city": "Pune",
+      "t_current_position": "Database Administrator",
+      "t_desired_region_1": "Pune",
+      "t_desired_salary": "125000",
+      "t_experience_level": "Senior (7-12 years)",
+      "t_maincategory": "Database",
+      "t_procedure_txt": "Permanent"
+    }
+  },
+  {
+    "id": "5878995969",
+    "properties": {
+      "custom_talent_category": "Systems Administration",
+      "hs_createdate": "07/02/24",
+      "t_candidate_id": "49500",
+      "t_city": "Chennai",
+      "t_current_position": "System Administrator",
+      "t_desired_region_1": "Chennai",
+      "t_desired_salary": "60000",
+      "t_experience_level": "Junior (1-3 years)",
+      "t_maincategory": "Administration",
+      "t_procedure_txt": "Temporary"
+    }
+  },
+  {
+    "id": "5878995970",
+    "properties": {
+      "custom_talent_category": "Blockchain Development",
+      "hs_createdate": "07/03/24",
+      "t_candidate_id": "49501",
+      "t_city": "Gurugram",
+      "t_current_position": "Blockchain Engineer",
+      "t_desired_region_1": "Gurugram",
+      "t_desired_salary": "175000",
+      "t_experience_level": "Senior (7-12 years)",
+      "t_maincategory": "Blockchain",
+      "t_procedure_txt": "Contract"
+    }
+  },
+  {
+    "id": "5878995969",
+    "properties": {
+      "custom_talent_category": "Systems Administration",
+      "hs_createdate": "07/02/24",
+      "t_candidate_id": "49500",
+      "t_city": "Chennai",
+      "t_current_position": "System Administrator",
+      "t_desired_region_1": "Chennai",
+      "t_desired_salary": "60000",
+      "t_experience_level": "Junior (1-3 years)",
+      "t_maincategory": "Administration",
+      "t_procedure_txt": "Temporary"
+    }
+  },
+  {
+    "id": "5878995970",
+    "properties": {
+      "custom_talent_category": "Blockchain Development",
+      "hs_createdate": "07/03/24",
+      "t_candidate_id": "49501",
+      "t_city": "Gurugram",
+      "t_current_position": "Blockchain Engineer",
+      "t_desired_region_1": "Gurugram",
+      "t_desired_salary": "175000",
+      "t_experience_level": "Senior (7-12 years)",
+      "t_maincategory": "Blockchain",
+      "t_procedure_txt": "Contract"
+    }
+  }
+];
+
         document.addEventListener("DOMContentLoaded", () => {
             const talentPool = new TalentPool({
                 container: "#TalentPool",
