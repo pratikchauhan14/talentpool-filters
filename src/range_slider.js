@@ -30,8 +30,8 @@ export default class RangeSlider {
         // this.tooltipMin.style.left = start;
         // this.tooltipMax.style.right = end;
 
-        // const formattedMinValue = this.options.formateCurrency ? this.options.formateCurrency(this.minValue) : `${this.minValue}€`;
-        // const formattedMaxValue = this.options.formateCurrency ? this.options.formateCurrency(this.maxValue) : `${this.maxValue}€`;
+        // const formattedMinValue = this.options.formateCurrency ? this.options.formateCurrency(this.minValue) : `${this.minValue}₹`;
+        // const formattedMaxValue = this.options.formateCurrency ? this.options.formateCurrency(this.maxValue) : `${this.maxValue}₹`;
 
         // this.tooltipMin.innerText = formattedMinValue;
         // this.tooltipMax.innerText = formattedMaxValue;
@@ -45,8 +45,8 @@ export default class RangeSlider {
         // Update tooltips
         this.tooltipMin.style.left = `${startPercent}%`;
         this.tooltipMax.style.left = `${endPercent}%`;
-        const formattedMinValue = this.options.formateCurrency ? this.options.formateCurrency(this.minValue) : `${this.minValue}€`;
-        const formattedMaxValue = this.options.formateCurrency ? this.options.formateCurrency(this.maxValue) : `${this.maxValue}€`;
+        const formattedMinValue = this.options.formateCurrency ? this.options.formateCurrency(this.minValue) : `${this.minValue}₹`;
+        const formattedMaxValue = this.options.formateCurrency ? this.options.formateCurrency(this.maxValue) : `${this.maxValue}₹`;
         this.tooltipMin.innerText = formattedMinValue;
         this.tooltipMax.innerText = formattedMaxValue;
         this.tooltipMin.style.transform = 'translateX(-50%)';
@@ -89,8 +89,8 @@ export default class RangeSlider {
         /* range label  */
         const rangeLabel = document.createElement("div");
         rangeLabel.classList.add("range-label");
-        const formattedMin = this.options.formateCurrency ? this.options.formateCurrency(this.options.min) : `${this.options.min}€`;
-        const formattedMax = this.options.formateCurrency ? this.options.formateCurrency(this.options.max) : `${this.options.max}€`;
+        const formattedMin = this.options.formateCurrency ? this.options.formateCurrency(this.options.min) : `${this.options.min}₹`;
+        const formattedMax = this.options.formateCurrency ? this.options.formateCurrency(this.options.max) : `${this.options.max}₹`;
         rangeLabel.innerHTML = `<span class="min">${formattedMin}</span> - <span class="max">${formattedMax}</span>`;
         container.appendChild(rangeLabel);
         /* tooltip wrapper */
@@ -98,13 +98,13 @@ export default class RangeSlider {
         tooltipWrapper.classList.add("tooltip-wrapper");
         const tooltipMin = document.createElement("span");
         tooltipMin.classList.add("tooltip-min");
-        const formattedDefaultMin = this.options.formateCurrency ? this.options.formateCurrency(this.options.defaultMin) : `${this.options.defaultMin}€`;
+        const formattedDefaultMin = this.options.formateCurrency ? this.options.formateCurrency(this.options.defaultMin) : `${this.options.defaultMin}₹`;
         tooltipMin.innerText = formattedDefaultMin;
         tooltipWrapper.appendChild(tooltipMin);
         this.tooltipMin = tooltipMin;
         const tooltipMax = document.createElement("span");
         tooltipMax.classList.add("tooltip-max");
-        const formattedDefaultMax = this.options.formateCurrency ? this.options.formateCurrency(this.options.defaultMax) : `${this.options.defaultMax}€`;
+        const formattedDefaultMax = this.options.formateCurrency ? this.options.formateCurrency(this.options.defaultMax) : `${this.options.defaultMax}₹`;
         tooltipMax.innerText = formattedDefaultMax;
         tooltipWrapper.appendChild(tooltipMax);
         this.tooltipMax = tooltipMax;
@@ -176,7 +176,7 @@ export default class RangeSlider {
         this.maxValue = this.options.defaultMax ?? this.options.max;
         if (this.minInput) this.minInput.value = this.minValue;
         if (this.maxInput) this.maxInput.value = this.maxValue;
-        const format = this.options.formateCurrency || (val => `${val}€`);
+        const format = this.options.formateCurrency || (val => `${val}₹`);
         if (this.tooltipMin) this.tooltipMin.innerText = format(this.minValue);
         if (this.tooltipMax) this.tooltipMax.innerText = format(this.maxValue);
         // Only call progressUpdate if all required elements are available

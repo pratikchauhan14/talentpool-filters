@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Cobalt TalentPool Data Filter">
+    <meta name="keywords" content="Cobalt, TalentPool, Data Filter, JavaScript, HTML, CSS">
+    <meta name="author" content="Cobalt Team">
+    <link rel="stylesheet" href="./src/style.css">
+    <link rel="icon" href="./logo.jpg" type="image/jpg">
+    <title>TalentPool Data Filter</title>
+</head>
+<body>
+    <div class="cobalt_heading">
+        <h1>Cobalt Talentpool</h1>
+        <p>Your next top talent just a few clicks away.</p>
+    </div>
+    <div class="wrapper">
+        <div class="cobalt_filter">
+            <div class="cobalt_filter_button">
+                <button class="cobalt_button" id="add-data"> Add Data </button>
+            </div>
+            <div id="TalentPool"></div>
+        </div>
+    </div>
+    <script src="dist/bundle.talentpool.js"></script>
+    <script type="module">
+        import { TalentPool } from './src/index.js'
+        // import { talentPoolData } from './src/data.js';
+        import { talentPoolData1 } from './src/data1.js';
+        document.addEventListener("DOMContentLoaded", () => {
+            const talentPool = new TalentPool({
+                container: "#TalentPool",
+                data: talentPoolData1.slice(0, 50),
+                // data: talentPoolData1,
+                InnerPageLink: "https://cobaltrecruitment.de/talent",
+                loadingText: "Wir laden alle über 2358 Talente für Sie. Vielen Dank für Ihre Geduld.",
+                itemsPerPageShow: 10,
+                popupTitle: "Create and Manage Search Requests",
+                labels: {
+                    prevLabel: "Previous",
+                    nextLabel: "Next",
+                    NoDataContent: "No data found",
+                    counterLabel: "Talente",
+                    resetLabel: "Filter zurücksetzen",
+                    searchPlaceholder: "Stichwort + Ort",
+                },
+                custom_talent_category: {
+                    title: "Talent Category",
+                    key: "custom_talent_category",
+                    group: {
+                        "Immobilienwesen": {
+                            name: "Immobilienwesen123",
+                            type: "checkbox",
+                            values: [
+                                'Property, Center and Facility Management',
+                                'Vertrieb',
+                                'Marketing',
+                                'Asset and Investment Management',
+                                'Fonds and Portfolio Management',
+                                'Analyse and Bewertung',
+                                'Corporate Real Estate Management',
+                                'Projektentwicklung and -steuerung',
+                                'Leitungsfunktionen',
+                                'ESG',
+                                'Weitere Spezialisten',
+                                'Sonstige'
+                            ]
+                        },
+                        "Bauwesen": {
+                            name: "Bauwesen",
+                            type: "checkbox",
+                            values: [
+                                'hochbau',
+                                'Tiefbau and Infrastruktur',
+                                'Technische Gebäudeausrüstung and Versorgungstechnik',
+                                'Controlling',
+                                'Architektur',
+                                'Projektentwicklung and -steuerung',
+                                'Analyse and Bewertung',
+                                'Leitungsfunktionen',
+                                'ESG',
+                                'Property, Center and Facility Management',
+                                'Weitere Spezialisten',
+                                'Sonstige'
+                            ]
+                        },
+                        "Finanzwesen": {
+                            name: "Finanzwesen",
+                            type: "checkbox",
+                            values: [
+                                'Rechnungswesen',
+                                'Steuern',
+                                'MandA / Private Equity',
+                                'Finanzierung',
+                                'Controlling',
+                                'Leitungsfunktionen',
+                                'Weitere Spezialisten',
+                                'Sonstige'
+                            ]
+                        },
+                        "Personalwesen & Administration": {
+                            name: "Personalwesen & Administration",
+                            type: "checkbox",
+                            values: [
+                                'Administration and Assistenz',
+                                'Personalwesen',
+                                'Einkauf',
+                                'Vertrieb',
+                                'Marketing',
+                                'Leitungsfunktionen',
+                                'Weitere Spezialisten',
+                                'Sonstige'
+                            ]
+                        },
+                        "Recht": {
+                            name: "Recht",
+                            type: "group",
+                            group: {
+                                "Bau- und Immobilienrecht": {
+                                    name: "Bau- und Immobilienrecht",
+                                    type: "checkbox",
+                                    values: [
+                                        "Volljuristen",
+                                        "Wirtschafts- and Diplomjuristen"
+                                    ]
+                                },
+                                "Gesellschaftsrecht": {
+                                    name: "Gesellschaftsrecht",
+                                    type: "checkbox",
+                                    values: [
+                                        "Volljuristen",
+                                        "Wirtschafts- and Diplomjuristen"
+                                    ]
+                                },
+                                "öffentliches Recht": {
+                                    name: "öffentliches Recht",
+                                    type: "checkbox",
+                                    values: [
+                                        "Volljuristen",
+                                        "Wirtschafts- and Diplomjuristen"
+                                    ]
+                                },
+                                "Datenschutz und Compliance": {
+                                    name: "Datenschutz und Compliance",
+                                    type: "checkbox",
+                                    values: [
+                                        "Volljuristen",
+                                        "Wirtschafts- and Diplomjuristen"
+                                    ]
+                                },
+                                "Bank- und Finanzrecht": {
+                                    name: "Bank- und Finanzrecht",
+                                    type: "checkbox",
+                                    values: [
+                                        "Volljuristen",
+                                        "Wirtschafts- and Diplomjuristen"
+                                    ]
+                                },
+                                "weitere Rechtsgebiete": {
+                                    name: "weitere Rechtsgebiete",
+                                    type: "checkbox",
+                                    values: [
+                                        "Volljuristen",
+                                        "Wirtschafts- and Diplomjuristen"
+                                    ]
+                                },
+                                "Leitungsfunktionen": {
+                                    name: "Leitungsfunktionen",
+                                    type: "simple",
+                                    values: ["Leitungsfunktionen"]
+                                },
+                                "Sonstige": {
+                                    name: "Sonstige",
+                                    type: "simple",
+                                    values: ["Sonstige"]
+                                },
+                            }
+                        }
+                    }
+                },
+                t_procedure_txt: {
+                    title: "Procedure",
+                    type: "checkbox",
+                    key: "t_procedure_txt",
+                    exclude: ["Permanent, Interim", "P"],
+                    replace: {
+                        "Permanent": "Festanstellung",
+                    }
+                },
+                t_experience_level: {
+                    title: "Experience Level",
+                    type: "checkbox",
+                    key: "t_experience_level",
+                },
+                t_desired_region_1: {
+                    title: "Desired Region",
+                    type: "checkbox",
+                    key: "t_desired_region_1",
+                },
+                t_desired_salary: {
+                    title: "Desired Salary",
+                    key: "t_desired_salary",
+                    min: 0,
+                    max: 400000,
+                    step: 1000,
+                    defaultMin: 0,
+                    defaultMax: 400000,
+                    gap: 1000,
+                }
+            });
+            talentPool.showLoading();
+
+            setTimeout(() => {
+                talentPool.sidebar.updateData(talentPool.talentPool);
+                talentPool.hideLoading();
+
+                talentPool.counter.appendCounterToSidebar();
+            }, 0);
+
+            talentPool.counerHideLoading(false);
+
+            let loadIndex = 50;
+            document.querySelector("#add-data").addEventListener("click", () => {
+                const newData = talentPoolData1.slice(loadIndex, loadIndex + 100);
+                if (newData.length === 0) {
+                    document.querySelector("#add-data").classList.add("disabled");
+                    return;
+                }
+
+                talentPool.talentPool.push(...newData);
+                loadIndex += newData.length;
+                talentPool.Filter.updateData(talentPool.talentPool);
+                talentPool.sidebar.updateData(talentPool.talentPool);
+                const checkedBoxes = document.querySelectorAll('.talent-pool-filter-sidebar input[type="checkbox"]:checked');
+                if (checkedBoxes.length > 0) {
+                    talentPool.Filter.applyFilters();
+                } else {
+                    talentPool.Filter.render();
+                }
+                talentPool.counter.appendCounterToSidebar();
+                talentPool.dataSort.applySorting();
+            });
+            //reset data button functionality
+            document.querySelector(".talent-pool-reset").addEventListener("click", () => {
+                talentPool.sidebar.reset();
+                talentPool.dataSort.reset();
+                talentPool.RangeSlider.reset();
+                talentPool.sidebar.storedValue = {};
+                talentPool.Filter.reset();
+                talentPool.sidebar.updateData(talentPool.talentPool);
+                talentPool.counter.reset();
+            });
+            document.addEventListener("model-open", (e) => {
+                const { container, formContainer } = e.detail;
+                formContainer.innerHTML = `<div><a href="javascript:void(0);" class="talent-pool-close-button">Close</a></div>`;
+            });
+
+            const PreviousStoredValue = [
+                {
+                    "desired_region": [],
+                    "experience_level": [null],
+                    "mainCategory": "",
+                    "max_range": 400000,
+                    "min_range": 0,
+                    "procedure_txt": [],
+                    "subCategories": [],
+                    "subscriptionDate": "2025-07-24 08:03:08",
+                    "current": true
+                }
+            ]
+            PreviousStoredValue.forEach((value) => {
+                if (value.current) {
+                    value.current = false;
+                }
+            });
+            const newValues = {
+                "desired_region": [],
+                "experience_level": [],
+                "mainCategory": null,
+                "max_range": null,
+                "min_range": null,
+                "procedure_txt": [],
+                "subCategories": [],
+                "subscriptionDate": new Date().toISOString(),
+                "current": true
+            }
+            PreviousStoredValue.push(newValues);
+
+            //model-open
+            document.addEventListener("model-open", (e) => {
+                console.log("model-open trigger");
+            });
+
+            // model-close
+            document.addEventListener("model-close", (e) => {
+                console.log("model-close trigger");
+            });
+
+            document.addEventListener("PopupValueStored", (e) => {
+                console.log("PopupValueStored trigger");
+                setTimeout(() => {
+                    const values = e.detail || {};
+                    const customTalent = values["custom_talent_category"] || {};
+
+                    const hasValues = Object.entries(values).some(([key, value]) => {
+                        if (key === 't_desired_salary') return false;
+                        if (Array.isArray(value)) return value.length > 0;
+                        if (value && typeof value === 'object') {
+                            return Object.values(value).some(v => Array.isArray(v) && v.length > 0);
+                        }
+                        return false;
+                    });
+                    if(hasValues){
+                        // console.log("hasValues", hasValues);
+                    }else{
+                        // console.log("not has values", hasValues);
+                    }
+
+                    if (!hasValues) return;
+
+                    if (hasValues) {
+
+                        let mainCat = null;
+                        let subCategories = [];
+
+                        for (const [category, subs] of Object.entries(customTalent)) {
+                            if (Array.isArray(subs) && subs.length > 0) {
+                                mainCat = category;
+                                console.log("mainCat:", mainCat);
+                                subCategories = subs;
+                                console.log("subCategories:", subCategories);
+                                break;
+                            }
+                        }
+                        // PreviousStoredValue.forEach((value) => {
+                        //     if (value.current) {
+                        //         value.desired_region = values["t_desired_region_1"];
+                        //         value.experience_level = values["t_experience_level"];
+                        //         value.max_range = values["t_desired_salary"]?.maxValue || null;
+                        //         value.min_range = values["t_desired_salary"]?.minValue || null;
+                        //         value.procedure_txt = values["t_procedure_txt"] || [];
+                        //     }
+                        // });
+                        const latest = PreviousStoredValue[PreviousStoredValue.length - 1];
+                        latest.desired_region = values["t_desired_region_1"] || [];
+                        latest.experience_level = values["t_experience_level"] || [];
+                        latest.max_range = values["t_desired_salary"]?.maxValue ?? null;
+                        latest.min_range = values["t_desired_salary"]?.minValue ?? null;
+                        latest.procedure_txt = values["t_procedure_txt"] || [];
+                        latest.mainCategory = mainCat;
+                        latest.subCategories = subCategories;
+                        console.log("Updated PreviousStoredValue:", PreviousStoredValue);
+                    }
+                }, 0);
+            });
+
+            document.onclick = function (e) {
+                if (e.target.classList.contains("talent-pool-close-button")) {
+                    talentPool.popupClose();
+                }
+            }
+        });
+    </script>
+</body>
+</html>

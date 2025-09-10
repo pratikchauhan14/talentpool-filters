@@ -27,7 +27,7 @@ export default class Filter {
         // Delay search input setup to ensure DOM is ready
         setTimeout(() => {
             this.setupSearchInput();
-        }, 200);
+        }, 2);
         this.reset();
     }
     paginationUI() {
@@ -54,7 +54,7 @@ export default class Filter {
             if (!document.getElementById("search")) {
                 this.setupSearchInput();
             }
-        }, 100);
+        }, 1);
     }
     prepareFilterValues(filters) {
         const prepared = {};
@@ -171,6 +171,7 @@ export default class Filter {
         }
         this.currentPage = 1;
         this.render();
+        console.log(this.filteredData);
     }
     renderCard(item) {
         const div = document.createElement("div");
@@ -181,16 +182,16 @@ export default class Filter {
             <div class="talent-pool-card-inner">
                 <div class="talent_box_content">
                     <h5><a target="_blank" href="${talentUrl}" class="position">${t_current_position}</a></h5>
-                    <span class="maincategory">${t_maincategory}</span>
+                    <span class="maincategory"><div>${t_maincategory}</div></span>
                 </div>
                 <div class="talent_box_inner_content">
                     <div class="talent_box_inner_left">
-                        <span>Experience Level: ${t_experience_level}</span>
-                        <span>Stadt: ${t_city}</span>
-                        <span>Gehaltsvorstellung / Honorar: ${this.formateCurrency(t_desired_salary, '€ pro Jahr')}</span>
+                        <span><b>Experience Level:</b> ${t_experience_level}</span>
+                        <span><b>City:</b> ${t_city}</span>
+                        <span><b>Salary:</b> ${this.formateCurrency(t_desired_salary, '₹ Per Month')}</span>
                     </div>
                     <div class="talent_box_btn">
-                       <a target="_blank" class="btn btn:secondary" href="${talentUrl}">Mehr erfahren</a>
+                       <a target="_blank" class="btn btn:secondary" href="${talentUrl}">Learn More</a>
                     </div>
                 </div>
             </div>
@@ -350,7 +351,7 @@ export default class Filter {
                 checkbox.indeterminate = false;
             });
             this.applySearch(searchTerm);
-        }, 300);
+        }, 3);
         searchInput.addEventListener("input", handleSearch);
         const filterSidebar = document.querySelector(".talent-pool-filter-sidebar");
         filterSidebar.addEventListener("change", (e) => {

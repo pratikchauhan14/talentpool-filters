@@ -114,15 +114,15 @@ export class TalentPool {
         const commaCount = (value.match(/,/g) || []).length;
         return commaCount > 1 || value.length < 100 ? /[;,]/ : /[;]/;
     }
-    formateCurrency(value, end = '€') {
+    formateCurrency(value, end = '₹') {
         const numberValue = parseFloat(value);
         if (isNaN(numberValue)) return value;
-        return new Intl.NumberFormat('de-DE', {
+        return new Intl.NumberFormat('en-IN', {
             style: 'currency',
-            currency: 'EUR',
+            currency: 'INR',
             minimumFractionDigits: 0,
             maximumFractionDigits: 0
-        }).format(numberValue).replace('€', end);
+        }).format(numberValue).replace('₹', end);
     }
     initializeLoading() {
         const loadingElement = document.querySelector('.talent-pool-loading-text');

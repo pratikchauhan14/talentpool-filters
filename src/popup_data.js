@@ -4,8 +4,10 @@ let isResettingGroups = false;
 export function popupButton(Sidebar) {
     const popupButton = document.createElement("button");
     popupButton.classList.add("talent-pool-popup-button");
-    popupButton.textContent = "Create and Manage Search Requests";
+    popupButton.textContent = Sidebar.popupTitle || "Subscribe our TalentPool";
     const body = document.body;
+
+    console.log("Sidebar", Sidebar.popupTitle);
       
     function isSubgroupValue(value, Sidebar) {
         const groupMap = Sidebar.parent?.custom_talent_category?.group || {};
