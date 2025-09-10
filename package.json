@@ -1,0 +1,17 @@
+
+{
+  "name": "cobalt",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "esbuild src/index.js --bundle --outfile=dist/bundle.talentpool.js ",
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "esbuild": "^0.25.8"
+  }
+}
