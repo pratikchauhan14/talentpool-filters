@@ -46,6 +46,7 @@ export default class Counter {
 	computeCounts(dataSource, keys, normalize, prepared = {}) {
 		const groupCounts = {};
 		for (const key of keys) {
+			console.log(key);
 			const activeValues = (prepared[key] || []).map(normalize);
 			const localGroupCount = {};
 			for (const talent of dataSource) {
@@ -130,6 +131,7 @@ export default class Counter {
 			// nested group counting
 			if (key === 'custom_talent_category' && this.sidebar.parent && this.sidebar.parent.custom_talent_category) {
 				const customGroups = this.sidebar.parent.custom_talent_category.group;
+
 				for (const groupKey in customGroups) {
 					const groupConfig = customGroups[groupKey];
 					if (groupConfig.type === 'group' && groupConfig.group) {
