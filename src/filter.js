@@ -58,32 +58,44 @@ export default class Filter {
     }
     prepareFilterValues(filters) {
         const prepared = {};
+        const regionFields = ['t_desired_region_1', 't_desired_region_2', 't_desired_region_3'];
+        const combinedRegionKey = 't_desired_region_1,t_desired_region_2,t_desired_region_3';
+        
+        // First, handle the combined region key if it exists
+        if (filters[combinedRegionKey] && Array.isArray(filters[combinedRegionKey])) {
+            prepared[combinedRegionKey] = [...filters[combinedRegionKey]];
+        }
+        
+        // Then process all other filters
         for (const key in filters) {
-            const value = filters[key];
-            if (key === 't_desired_salary' && typeof value === 'object' && value.minValue !== undefined && value.maxValue !== undefined) {
-                continue;
+            if (key === 't_desired_salary' || key === combinedRegionKey) {
+                continue; 
             }
-            if (typeof value === 'object' && !Array.isArray(value)) {
-                // nested groups 
+            
+            const value = filters[key];
+            
+            // Handle regular filters
+            if (Array.isArray(value)) {
+                prepared[key] = [...value];
+            } 
+            // Handle nested category objects
+            else if (typeof value === 'object' && value !== null) {
                 const flatValues = [];
-                for (const groupKey in value) {
-                    const groupValue = value[groupKey];
-                    if (typeof groupValue === 'object' && !Array.isArray(groupValue)) {
-                        //nested subgroups
-                        for (const subGroupKey in groupValue) {
-                            const subGroupValues = groupValue[subGroupKey];
-                            if (Array.isArray(subGroupValues)) {
-                                flatValues.push(...subGroupValues);
-                            }
-                        }
-                    } else if (Array.isArray(groupValue)) {
-                        // regular groups
-                        flatValues.push(...groupValue);
+                const processNested = (obj) => {
+                    if (Array.isArray(obj)) {
+                        flatValues.push(...obj);
+                    } else if (obj && typeof obj === 'object') {
+                        Object.values(obj).forEach(processNested);
                     }
-                }
+                };
+                processNested(value);
                 prepared[key] = flatValues;
-            } else {
-                prepared[key] = Array.isArray(value) ? [...value] : Object.values(value).flat();
+            } 
+            // Handle regular arrays and other values
+            else {
+                prepared[key] = Array.isArray(value) 
+                    ? [...value] 
+                    : value ? [value] : [];
             }
         }
         return prepared;
@@ -99,6 +111,7 @@ export default class Filter {
     }
     applyFilters() {
         const filters = this.storedValue;
+        console.log("filters",filters);
         if (!filters || typeof filters !== 'object') {
             this.filteredData = this.talentPool;
             return;
@@ -121,10 +134,32 @@ export default class Filter {
                 const values = prepared[key].map(this.normalize);
                 values.forEach(itemValue => {
                     currentData.forEach(talent => {
-                        const raw = talent.properties[key];
+                        let raw = '';
+                        
+                        // Handle combined region fields
+                        if (key === 't_desired_region_1,t_desired_region_2,t_desired_region_3') {
+                            const regionValues = new Set();
+                            ['t_desired_region_1', 't_desired_region_2', 't_desired_region_3'].forEach(regionKey => {
+                                const regionValue = talent.properties[regionKey];
+                                if (regionValue) {
+                                    regionValue.split(/[,\s]+/)
+                                        .map(v => v.trim())
+                                        .filter(Boolean)
+                                        .forEach(val => regionValues.add(this.normalize(val)));
+                                }
+                            });
+                            raw = Array.from(regionValues).join(',');
+                        } else {
+                            // Handle other fields normally
+                            raw = talent.properties[key] || '';
+                        }
                         if (!raw) return;
                         const splitPattern = this.getSplitPattern(raw);
-                        const talentValues = raw.split(splitPattern).map(this.normalize).filter(Boolean);
+                        const talentValues = [...new Set(
+                            raw.split(splitPattern)
+                                .map(val => this.normalize(val))
+                                .filter(Boolean)
+                        )];
                         const fullValue = this.normalize(raw);
                         let isMatch = false;
                         // Check if this is a simple category from nested groups
@@ -238,10 +273,17 @@ export default class Filter {
             btn.disabled = disabled;
             btn.onclick = onClick;
         };
-        createBtn(`‹ ${this.labels.prevLabel}`, currentPage === 1, () => {
-            this.currentPage--;
-            this.render();
-        });
+        // createBtn(`‹ ${this.labels.prevLabel}`, currentPage === 1, () => {
+        //     this.currentPage--;
+        //     this.render();
+        // });
+        if (currentPage > 1) {
+            createBtn(`‹ ${this.labels.prevLabel}`, false, () => {
+                this.currentPage--;
+                this.render();
+            });
+        }
+        
         const maxVisiblePages = 5;
         const half = Math.floor(maxVisiblePages / 2);
         let start = Math.max(1, currentPage - half);
@@ -270,10 +312,16 @@ export default class Filter {
         if (end < totalPages) {
             this.createElement("span", "ellipsis", pagination).textContent = "…";
         }
-        createBtn(`${this.labels.nextLabel} ›`, currentPage === totalPages, () => {
-            this.currentPage++;
-            this.render();
-        });
+        // createBtn(`${this.labels.nextLabel} ›`, currentPage === totalPages, () => {
+        //     this.currentPage++;
+        //     this.render();
+        // });
+        if (currentPage < totalPages) {
+            createBtn(`${this.labels.nextLabel} ›`, false, () => {
+                this.currentPage++;
+                this.render();
+            });
+        }
     }
 
     createPaginationButton(label, disabled, handler) {
@@ -301,13 +349,36 @@ export default class Filter {
     }
     applySearch(searchTerm, onComplete) {
         const normalizedSearch = this.normalize(searchTerm);
-        const keys = ['t_procedure_txt', 'custom_talent_category', 't_experience_level', 't_desired_region_1'];
+        const keys = ['t_procedure_txt', 'custom_talent_category', 't_experience_level', 't_desired_region_1', 't_desired_region_2', 't_desired_region_3'];
         if (!normalizedSearch) {
             this.filteredData = this.talentPool;
-        } else {
+        } 
+        // else {
+        //     this.filteredData = this.talentPool.filter(talent => {
+        //         return keys.some(key => {
+        //             const raw = talent.properties[key];
+        //             if (!raw) return false;
+        //             const splitPattern = this.getSplitPattern(raw);
+        //             const values = raw.split(splitPattern).map(val => this.normalize(val));
+        //             return values.some(val => val.includes(normalizedSearch));
+        //         });
+        //     });
+        // }
+        else {
             this.filteredData = this.talentPool.filter(talent => {
                 return keys.some(key => {
-                    const raw = talent.properties[key];
+                    let raw = talent.properties[key];
+                    // For region fields, combine all region values
+                    if (key.startsWith('t_desired_region_')) {
+                        const regionValues = [];
+                        for (let i = 1; i <= 3; i++) {
+                            const regionKey = `t_desired_region_${i}`;
+                            if (talent.properties[regionKey]) {
+                                regionValues.push(talent.properties[regionKey]);
+                            }
+                        }
+                        raw = regionValues.join(',');
+                    }
                     if (!raw) return false;
                     const splitPattern = this.getSplitPattern(raw);
                     const values = raw.split(splitPattern).map(val => this.normalize(val));

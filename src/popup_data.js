@@ -197,7 +197,10 @@ export function popupButton(Sidebar) {
             nestedGroup.classList.add('popup-transformed');
         });
         /* init rangeslider */
-        const rangeSlider = new RangeSlider(Sidebar.rangeSliderOption);
+        const rangeSlider = new RangeSlider({
+            ...Sidebar.rangeSliderOption,
+            formateCurrency: Sidebar.parent.formateCurrency.bind(Sidebar.parent)
+        });
         const element = rangeSlider.initialize();
         clonedSidebar.appendChild(element);
         // console.log("clonedSidebar", clonedSidebar);

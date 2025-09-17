@@ -186,9 +186,9 @@
                     key: "t_experience_level",
                 },
                 t_desired_region_1: {
-                    title: "Region",
+                    title: "Desired Region",
                     type: "checkbox",
-                    key: "t_desired_region_1",
+                    key: ["t_desired_region_1", "t_desired_region_2", "t_desired_region_3"]
                 },
                 t_desired_salary: {
                     title: "Gehaltsvorstellung / Honorar",
@@ -201,6 +201,7 @@
                     gap: 1000,
                 }
             });
+            //console.log(talentPool);
             talentPool.showLoading();
 
             setTimeout(() => {

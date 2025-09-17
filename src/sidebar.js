@@ -161,16 +161,36 @@ export default class TalentPoolSidebar {
         this.storedValue.t_desired_salary = { minValue, maxValue };
         this.triggerChange();
     }
+    // getOptionsData(key = null, exclude = []) {
+    //     if (!key) return console.error("Key is required to get options data");
+    //     const uniqueValues = new Set();
+    //     this.talentPool.forEach(item => {
+    //         if (item.properties[key] && !exclude.includes(item.properties[key])) {
+    //             uniqueValues.add(item.properties[key]);
+    //         }
+    //     });
+    //     return Array.from(uniqueValues).map(value => ({ label: value, value }));
+    // }
     getOptionsData(key = null, exclude = []) {
         if (!key) return console.error("Key is required to get options data");
         const uniqueValues = new Set();
+        const keys = Array.isArray(key) ? key : [key];
         this.talentPool.forEach(item => {
-            if (item.properties[key] && !exclude.includes(item.properties[key])) {
-                uniqueValues.add(item.properties[key]);
-            }
+            keys.forEach(k => {
+                const val = item.properties[k];
+                if (val && !exclude.includes(val)) {
+                    uniqueValues.add(val);
+                }
+            });
         });
-        return Array.from(uniqueValues).map(value => ({ label: value, value }));
+        const options = Array.from(uniqueValues).map(value => ({
+            label: value,
+            value
+        }));
+        options.sort((a, b) => a.label.localeCompare(b.label));
+        return options;
     }
+    
 
     getSimpleOptionsData(value = null) {
         if (!value) return console.error("Value is required to get simple options data");
@@ -178,19 +198,38 @@ export default class TalentPoolSidebar {
     }
 
     addRemoveValueInStoredValue({ key = null, value = null, groupKey = null }) {
-        if (!key || !value) return console.error("Key and value are required");
+        if (!key || value === null) return;
+        const previousState = JSON.parse(JSON.stringify(this.storedValue));
         if (groupKey) {
             this.storedValue[groupKey] = this.storedValue[groupKey] || {};
             this.storedValue[groupKey][key] = this.storedValue[groupKey][key] || [];
             const group = this.storedValue[groupKey][key];
             const index = group.indexOf(value);
-            index > -1 ? group.splice(index, 1) : group.push(value);
+            if (index > -1) {
+                group.splice(index, 1);
+            } else {
+                group.push(value);
+            }
+            if (key.startsWith('t_desired_region_')) {
+                for (let i = 1; i <= 3; i++) {
+                    const regionKey = `t_desired_region_${i}`;
+                    if (regionKey !== key) {
+                        this.storedValue[groupKey][regionKey] = this.storedValue[groupKey][regionKey] || [];
+                        const regionIndex = this.storedValue[groupKey][regionKey].indexOf(value);
+                        if (regionIndex > -1) {
+                            this.storedValue[groupKey][regionKey].splice(regionIndex, 1);
+                        }
+                    }
+                }
+            }
         } else {
             this.storedValue[key] = this.storedValue[key] || [];
             const index = this.storedValue[key].indexOf(value);
             index > -1 ? this.storedValue[key].splice(index, 1) : this.storedValue[key].push(value);
         }
-        this.triggerChange();
+        if (JSON.stringify(previousState) !== JSON.stringify(this.storedValue)) {
+            this.triggerChange();
+        }
     }
 
     buildOptionsDataGroup({ title = "", key = null, group = { filteredGroup } }) {
@@ -231,7 +270,6 @@ export default class TalentPoolSidebar {
     buildOptionsData({ isCustom = false, values = [], type = "checkbox", key = null, exclude = [], placeholder = "", title = "", groupKey = null , replace = null }) {
         if (!key) return console.error("Key is required to build options data");
         const options = isCustom ? this.getSimpleOptionsData(values) : this.getOptionsData(key, exclude);
-        
         const checkboxContainer = document.createElement("div");
         checkboxContainer.classList.add("talent-pool-checkboxes");
         checkboxContainer.setAttribute("data-key", key);

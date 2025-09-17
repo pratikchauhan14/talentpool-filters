@@ -24,7 +24,7 @@ export default class Counter {
 	}
 	updateCounter() {
 		const normalize = this.normalize.bind(this);
-		const keys = ['t_procedure_txt', 'custom_talent_category', 't_experience_level', 't_desired_region_1', 't_desired_salary'];
+		const keys = ['t_procedure_txt', 'custom_talent_category', 't_experience_level', 't_desired_region_1', 't_desired_region_2', 't_desired_region_3', 't_desired_salary'];
 		const filters = this.storedValue || {};
 		const prepared = this.filter.prepareFilterValues(filters);
 		const filteredData = this.filter.filteredData;
@@ -46,17 +46,33 @@ export default class Counter {
 	computeCounts(dataSource, keys, normalize, prepared = {}) {
 		const groupCounts = {};
 		for (const key of keys) {
-			console.log(key);
+			if (key === 't_desired_region_2' || key === 't_desired_region_3') continue;
 			const activeValues = (prepared[key] || []).map(normalize);
 			const localGroupCount = {};
 			for (const talent of dataSource) {
-				const raw = talent.properties[key];
+				let raw = talent.properties[key];
+				if (key === 't_desired_region_1') {
+					const regionValues = new Set();
+					for (let i = 1; i <= 3; i++) {
+						const regionKey = `t_desired_region_${i}`;
+						const regionValue = talent.properties[regionKey];
+						if (regionValue) {
+							const splitValues = regionValue.split(/[,\s]+/).filter(Boolean);
+							splitValues.forEach(val => regionValues.add(val.trim()));
+						}
+					}
+					raw = Array.from(regionValues).join(',');
+				}
 				if (!raw) continue;
 				const splitPattern = this.getSplitPattern(raw);
-				const talentValues = raw.split(splitPattern).map(normalize).filter(Boolean);
+				const talentValues = [...new Set(
+					raw.split(splitPattern)
+					.map(val => normalize(val))
+					.filter(Boolean)
+				)];
 				const fullValue = normalize(raw);
 				for (const category of talentValues) {
-					//simple category from nested groups
+				
 					let isSimpleCategory = false;
 					if (key === 'custom_talent_category' && this.sidebar?.parent?.custom_talent_category) {
 						const customGroups = this.sidebar.parent.custom_talent_category.group;
@@ -274,6 +290,7 @@ export default class Counter {
 		this.hideZeroLabelsOnLoad();
 		// group category counts
 		const normalize = this.normalize.bind(this);
+		
 		const keys = ['t_procedure_txt', 'custom_talent_category', 't_experience_level', 't_desired_region_1', 't_desired_salary'];
 		const baseCounts = this.computeCounts(this.talentPool, keys, normalize);
 		const flatCounts = {};
